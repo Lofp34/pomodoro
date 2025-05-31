@@ -23,7 +23,7 @@ export default function MethodValuesSection() {
     },
     {
       title: "Engagement",
-      description: "Je suis à fond dans ce que je fais. Et j'attends la même chose de mes clients. Je préfère former moins de gens, mais aller au bout avec eux.",
+      description: "Je suis à fond dans ce que je fais. Et j&apos;attends la même chose de mes clients. Je préfère former moins de gens, mais aller au bout avec eux.",
       icon: "🔥",
       color: "orange-soft"
     },
