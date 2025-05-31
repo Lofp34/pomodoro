@@ -45,7 +45,7 @@ const caseStudies: CaseStudy[] = [
     industry: "Marketing digital",
     result: "15 nouveaux clients/mois",
     resultNumber: "15",
-    quote: "L'accompagnement de Laurent nous a permis de structurer notre prospection. Nous générons maintenant 15 nouveaux clients par mois.",
+    quote: "L&apos;accompagnement de Laurent nous a permis de structurer notre prospection. Nous générons maintenant 15 nouveaux clients par mois.",
     author: "Sophie Chen",
     position: "Responsable Développement",
     hasVideo: true,

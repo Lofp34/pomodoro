@@ -106,7 +106,7 @@ export default function DiagnosticSection() {
         level: "Avancé",
         color: "blue-ink",
         title: "Performance à maximiser",
-        description: "Votre équipe est bien structurée. Des optimisations fines et l'intégration d'outils modernes peuvent vous faire passer au niveau supérieur.",
+        description: "Votre équipe est bien structurée. Des optimisations fines et l&apos;intégration d&apos;outils modernes peuvent vous faire passer au niveau supérieur.",
         emoji: "🎯"
       };
     } else {

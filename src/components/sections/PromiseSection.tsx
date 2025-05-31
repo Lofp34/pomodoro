@@ -45,7 +45,7 @@ export default function PromiseSection() {
     },
     {
       icon: "🤖",
-      text: "L'intégration des outils d'IA… quand cela fait vraiment sens",
+      text: "L&apos;intégration des outils d&apos;IA… quand cela fait vraiment sens",
       delay: "0.6s",
       popup: {
         title: "Agent GPT d'autocoaching intégré",

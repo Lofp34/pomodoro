@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+
 export default function HeroSection() {
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({
@@ -10,17 +12,16 @@ export default function HeroSection() {
 
   return (
     <section className="min-h-screen relative overflow-hidden flex items-center justify-center">
-      {/* Photo de Laurent en arrière-plan */}
-      <div className="absolute inset-0">
-        <img 
-          src="/laurent.jpg" 
-          alt="Laurent Serre - Consultant en développement commercial"
-          className="w-full h-full object-cover object-center"
+      {/* Image de fond avec overlay */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/laurent.jpg"
+          alt="Laurent Serre - Expert en développement commercial"
+          fill
+          className="object-cover object-center"
+          priority
         />
-        {/* Overlay gradient pour la lisibilité */}
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-ink/85 via-blue-ink/70 to-blue-ink/85"></div>
-        {/* Overlay supplémentaire pour le contraste */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-blue-ink/30"></div>
+        <div className="absolute inset-0 bg-blue-ink/60"></div>
       </div>
 
       {/* Background decorative elements */}
@@ -31,12 +32,20 @@ export default function HeroSection() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 text-center">
         <div className="space-y-6 sm:space-y-8 animate-fade-in-up">
+          {/* Badge d'expertise */}
+          <div className="animate-fade-in-up mb-8">
+            <div className="inline-flex items-center gap-3 bg-mint-green/10 backdrop-blur-sm border border-mint-green/30 px-6 py-3 rounded-full">
+              <span className="w-3 h-3 bg-mint-green rounded-full animate-pulse"></span>
+              <span className="font-title font-semibold text-mint-green text-sm md:text-base">
+                20 ans d&apos;expertise • Formations sur-mesure
+              </span>
+            </div>
+          </div>
+
           {/* Titre punchy */}
           <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-title font-extrabold text-white leading-tight drop-shadow-lg">
-            De l'effort commercial
-            <span className="block text-mint-green">
-              au levier stratégique.
-            </span>
+            <span className="block">De l&apos;effort commercial</span>
+            <span className="block text-mint-green">au levier stratégique</span>
           </h1>
 
           {/* Sous-titre inspirant */}

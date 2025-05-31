@@ -35,7 +35,7 @@ export default function MethodValuesSection() {
     },
     {
       title: "Sincérité",
-      description: "Je dis ce que je pense, même quand c'est inconfortable. Je préfère un \"non\" franc qu'un \"oui\" tiède.",
+      description: "Je dis ce que je pense, même quand c&apos;est inconfortable. Je préfère un &quot;non&quot; franc qu&apos;un &quot;oui&quot; tiède.",
       icon: "💭",
       color: "blue-ink"
     }
@@ -92,7 +92,7 @@ export default function MethodValuesSection() {
               </div>
               <p className="text-lg font-body text-gray-anthracite dark:text-primary-bg leading-relaxed">
                 Je veux réhabiliter le métier de commercial comme un métier noble, stratégique et profondément humain. 
-                Dans un monde saturé d'automatisation et de bullshit, je veux prouver qu'une approche rigoureuse, intelligente et sincère peut générer de la croissance durable. 
+                Dans un monde saturé d&apos;automatisation et de bullshit, je veux prouver qu&apos;une approche rigoureuse, intelligente et sincère peut générer de la croissance durable. 
                 Mon objectif : créer la référence de la formation commerciale hybride, qui allie exigence, simplicité et outils augmentés.
               </p>
             </div>
@@ -166,12 +166,12 @@ export default function MethodValuesSection() {
               Ma philosophie en une phrase
             </h3>
             <blockquote className="text-xl md:text-2xl font-italic text-gray-anthracite dark:text-primary-bg leading-relaxed">
-              "Le succès commercial ne vient pas de techniques magiques, mais de{" "}
+              &quot;Le succès commercial ne vient pas de techniques magiques, mais de{" "}
               <span className="font-bold text-mint-green">méthodes éprouvées</span>{" "}
               appliquées avec{" "}
               <span className="font-bold text-orange-soft">constance</span>{" "}
               et{" "}
-              <span className="font-bold text-blue-ink dark:text-mint-green">authenticité</span>."
+              <span className="font-bold text-blue-ink dark:text-mint-green">authenticité</span>.&quot;
             </blockquote>
             <footer className="mt-6">
               <cite className="font-title font-bold text-blue-ink dark:text-primary-bg not-italic">

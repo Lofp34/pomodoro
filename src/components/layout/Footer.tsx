@@ -103,9 +103,10 @@ export default function Footer() {
                 <span className="text-lg mt-1">📍</span>
                 <div>
                   <p className="font-body text-primary-bg/80 text-sm">Zone d'intervention</p>
-                  <p className="font-body text-primary-bg">
-                    France & Europe
-                  </p>
+                  <div className="flex items-center gap-2 text-sm text-gray-anthracite dark:text-primary-bg/70">
+                    <span>📍</span>
+                    <span>Basé en France • Interventions nationales et internationales</span>
+                  </div>
                 </div>
               </div>
             </div>

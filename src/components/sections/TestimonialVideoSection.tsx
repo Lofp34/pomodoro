@@ -26,7 +26,7 @@ export default function TestimonialVideoSection() {
                   Témoignage Client
                 </h3>
                 <p className="font-body text-sm sm:text-base text-gray-anthracite dark:text-primary-bg/80">
-                  Retour d'expérience authentique
+                  Retour d&apos;expérience authentique
                 </p>
               </div>
             </div>
@@ -46,7 +46,7 @@ export default function TestimonialVideoSection() {
             {/* Citation ou call-to-action */}
             <div className="text-center mt-6 p-4 bg-mint-green/5 rounded-xl">
               <p className="font-italic text-gray-anthracite dark:text-primary-bg/90 leading-relaxed">
-                "Une transformation concrète qui a révolutionné notre approche commerciale"
+                &quot;Une transformation concrète qui a révolutionné notre approche commerciale&quot;
               </p>
             </div>
           </div>

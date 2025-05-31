@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function AboutSection() {
   return (
     <section className="py-16 sm:py-20 bg-white dark:bg-gray-anthracite/20">
@@ -17,9 +19,11 @@ export default function AboutSection() {
             <div className="relative">
               {/* Photo de Laurent */}
               <div className="w-full max-w-sm sm:max-w-md mx-auto aspect-square rounded-3xl overflow-hidden border-4 border-mint-green/30 shadow-2xl">
-                <img 
+                <Image
                   src="/laurentserre2.jpg" 
                   alt="Laurent Serre - Consultant en développement commercial"
+                  width={400}
+                  height={400}
                   className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
                 />
               </div>
@@ -42,7 +46,7 @@ export default function AboutSection() {
                 Mon approche est{" "}
                 <span className="font-bold text-blue-ink dark:text-mint-green">directe</span>,{" "}
                 <span className="font-bold text-blue-ink dark:text-mint-green">sans jargon</span>, et résolument tournée vers{" "}
-                <span className="font-bold text-orange-soft">l'action</span>.
+                <span className="font-bold text-orange-soft">l&apos;action</span>.
               </p>
               
               <p className="text-lg sm:text-xl md:text-2xl font-body text-gray-anthracite dark:text-primary-bg leading-relaxed">
