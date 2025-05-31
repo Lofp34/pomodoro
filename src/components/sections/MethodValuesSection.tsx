@@ -69,9 +69,9 @@ export default function MethodValuesSection() {
                 </div>
               </div>
               <p className="text-lg font-body text-gray-anthracite dark:text-primary-bg leading-relaxed">
-                J'aide les dirigeants de PME et leurs équipes commerciales à vendre mieux, plus humainement et plus efficacement, 
+                J&apos;aide les dirigeants de PME et leurs équipes commerciales à vendre mieux, plus humainement et plus efficacement, 
                 en combinant 20 ans de terrain avec la puissance des outils modernes (IA, automatisation, structuration). 
-                Je transforme leur chaos commercial en clarté d'action et en résultats concrets.
+                Je transforme leur chaos commercial en clarté d&apos;action et en résultats concrets.
               </p>
             </div>
           </div>
