@@ -1,8 +1,16 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Open+Sans:wght@300;400;600;700&family=Nunito:ital,wght@0,400;0,600;1,400;1,600&family=Roboto+Slab:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Charte graphique - Mode clair */
+  --background: #F2F5F7;      /* Fond principal - Gris clair bleuté */
+  --foreground: #1B365D;      /* Titres & blocs clés - Bleu encre */
+  --accent: #00BDA4;          /* Accents visuels - Vert menthe doux */
+  --secondary: #414141;       /* Éléments secondaires - Gris anthracite */
+  --emotion: #FFAA5C;         /* Icônes/Émotions - Orange doux */
 }
 
 @theme inline {
@@ -14,13 +22,35 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Adaptation pour le mode sombre */
+    --background: #1B365D;      /* Bleu encre comme fond sombre */
+    --foreground: #F2F5F7;      /* Gris clair bleuté pour le texte */
+    --accent: #00BDA4;          /* Vert menthe reste identique */
+    --secondary: #414141;       /* Gris anthracite reste identique */
+    --emotion: #FFAA5C;         /* Orange doux reste identique */
   }
 }
 
 body {
-  background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--background);
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* Classes utilitaires pour la typographie */
+.font-title {
+  font-family: 'Inter', 'Roboto Slab', serif;
+  font-weight: 800;
+}
+
+.font-body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+}
+
+.font-italic {
+  font-family: 'Nunito', sans-serif;
+  font-style: italic;
 }
