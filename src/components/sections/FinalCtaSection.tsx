@@ -93,7 +93,7 @@ export default function FinalCtaSection() {
               Voir les cas clients
             </h3>
             <p className="font-body text-gray-anthracite dark:text-primary-bg/80 text-sm mb-4">
-              Découvrez comment d'autres dirigeants ont transformé leurs équipes
+              Découvrez comment d&apos;autres dirigeants ont transformé leurs équipes
             </p>
             <button 
               onClick={() => scrollToSection('cas-clients')}

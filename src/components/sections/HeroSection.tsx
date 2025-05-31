@@ -58,7 +58,7 @@ export default function HeroSection() {
             </p>
             
             <p className="text-base sm:text-lg md:text-xl font-italic text-white/90 leading-relaxed drop-shadow-sm px-2">
-              Avec 20 ans de terrain et les meilleurs outils d'aujourd'hui, je vous aide à vendre mieux, 
+              Avec 20 ans de terrain et les meilleurs outils d&apos;aujourd&apos;hui, je vous aide à vendre mieux, 
               plus humainement, et durablement.
             </p>
           </div>

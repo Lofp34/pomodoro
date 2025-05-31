@@ -71,14 +71,14 @@ export default function ProblemSection() {
         <div className="text-center max-w-4xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
           <div className="bg-mint-green/5 border-l-4 border-mint-green rounded-r-2xl p-8 mb-8">
             <p className="text-2xl md:text-3xl font-body text-blue-ink dark:text-primary-bg leading-relaxed mb-4">
-              Vous n'avez pas un problème de{" "}
+              Vous n&apos;avez pas un problème de{" "}
               <span className="font-bold text-orange-soft">motivation</span>.
             </p>
             <p className="text-2xl md:text-3xl font-body text-blue-ink dark:text-primary-bg leading-relaxed">
               Vous avez un problème de{" "}
               <span className="font-bold text-mint-green">structuration</span>.
               <span className="block mt-2 font-italic text-xl">
-                Et ça se corrige.
+                Et cela se corrige.
               </span>
             </p>
           </div>

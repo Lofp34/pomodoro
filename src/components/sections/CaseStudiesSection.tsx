@@ -61,8 +61,8 @@ export default function CaseStudiesSection() {
         {/* Titre */}
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-title font-bold text-blue-ink dark:text-primary-bg leading-tight">
-            Ils l'ont fait.
-            <span className="block text-mint-green">Et ça a changé la donne.</span>
+            Ils l&apos;ont fait.
+            <span className="block text-mint-green">Et cela a changé la donne.</span>
           </h2>
         </div>
 
@@ -101,7 +101,7 @@ export default function CaseStudiesSection() {
               {/* Citation */}
               <blockquote className="mb-6">
                 <p className="font-body text-gray-anthracite dark:text-primary-bg leading-relaxed italic mb-4">
-                  "{study.quote}"
+                  &quot;{study.quote}&quot;
                 </p>
                 <footer>
                   <cite className="font-title font-semibold text-blue-ink dark:text-primary-bg not-italic">
@@ -143,7 +143,7 @@ export default function CaseStudiesSection() {
             </span>
           </button>
           <p className="mt-4 font-italic text-gray-anthracite dark:text-primary-bg/70">
-            Découvrez comment d'autres entreprises ont transformé leurs résultats
+            Découvrez comment d&apos;autres entreprises ont transformé leurs résultats
           </p>
         </div>
 

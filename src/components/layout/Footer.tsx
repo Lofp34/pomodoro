@@ -15,7 +15,7 @@ export default function Footer() {
               <div className="w-16 h-1 bg-mint-green rounded-full mb-4"></div>
               <p className="font-body text-primary-bg/80 leading-relaxed">
                 Transformez votre force de vente en équipe engagée, structurée et performante. 
-                Avec 20 ans d'expérience terrain et les meilleurs outils d'aujourd'hui.
+                Avec 20 ans d&apos;expérience terrain et les meilleurs outils d&apos;aujourd&apos;hui.
               </p>
             </div>
 
@@ -102,7 +102,7 @@ export default function Footer() {
               <div className="flex items-start gap-3">
                 <span className="text-lg mt-1">📍</span>
                 <div>
-                  <p className="font-body text-primary-bg/80 text-sm">Zone d'intervention</p>
+                  <p className="font-body text-primary-bg/80 text-sm">Zone d&apos;intervention</p>
                   <div className="flex items-center gap-2 text-sm text-gray-anthracite dark:text-primary-bg/70">
                     <span>📍</span>
                     <span>Basé en France • Interventions nationales et internationales</span>
@@ -145,7 +145,7 @@ export default function Footer() {
           <div className="inline-flex items-center gap-2 bg-mint-green/10 px-4 py-2 rounded-full">
             <span className="text-mint-green">🏆</span>
             <span className="font-body text-primary-bg/80 text-sm">
-              Consultant certifié • 20 ans d'expérience • +50 entreprises accompagnées
+              Consultant certifié • 20 ans d&apos;expérience • +50 entreprises accompagnées
             </span>
           </div>
         </div>

@@ -11,7 +11,7 @@ export default function MethodValuesSection() {
   const values = [
     {
       title: "Responsabilité",
-      description: "Je valorise les personnes qui prennent leur part. Qu'il s'agisse d'un dirigeant, d'un commercial ou de moi-même, chacun est responsable de la qualité de la relation et de la performance.",
+      description: "Je valorise les personnes qui prennent leur part. Qu&apos;il s&apos;agisse d&apos;un dirigeant, d&apos;un commercial ou de moi-même, chacun est responsable de la qualité de la relation et de la performance.",
       icon: "🤝",
       color: "mint-green"
     },
