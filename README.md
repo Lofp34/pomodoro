@@ -122,3 +122,4 @@ Ce projet est conçu pour être facilement extensible. N'hésitez pas à ajouter
 ---
 
 Créé avec ❤️ en utilisant Next.js 15 et Tailwind CSS
+# Deploy Sun Jun  1 15:23:49 CEST 2025
