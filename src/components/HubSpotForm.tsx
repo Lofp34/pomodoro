@@ -2,6 +2,25 @@
 
 import { useEffect } from 'react';
 
+// Types pour HubSpot
+interface HubSpotWindow extends Window {
+  hbspt?: {
+    forms: {
+      create: (config: HubSpotFormConfig) => void;
+    };
+  };
+}
+
+interface HubSpotFormConfig {
+  region: string;
+  portalId: string;
+  formId: string;
+  target: string;
+  onFormReady?: () => void;
+  onFormSubmit?: () => void;
+  onFormSubmitted?: () => void;
+}
+
 interface HubSpotFormProps {
   formId?: string;
   region?: string;
@@ -14,27 +33,29 @@ export default function HubSpotForm({
   portalId = "7401198"
 }: HubSpotFormProps) {
   useEffect(() => {
+    const windowWithHubSpot = window as HubSpotWindow;
+    
     // Charger le script HubSpot si pas déjà chargé
-    if (typeof window !== 'undefined' && !(window as any).hbspt) {
+    if (typeof window !== 'undefined' && !windowWithHubSpot.hbspt) {
       const script = document.createElement('script');
       script.src = '//js.hsforms.net/forms/embed/v2.js';
       script.charset = 'utf-8';
       script.async = true;
       script.onload = () => {
         // Créer le formulaire une fois le script chargé
-        if ((window as any).hbspt) {
-          (window as any).hbspt.forms.create({
+        if (windowWithHubSpot.hbspt) {
+          windowWithHubSpot.hbspt.forms.create({
             region: region,
             portalId: portalId,
             formId: formId,
             target: '#hubspot-form-container',
-            onFormReady: function($form: any) {
+            onFormReady: () => {
               console.log('Formulaire HubSpot prêt');
             },
-            onFormSubmit: function($form: any) {
+            onFormSubmit: () => {
               console.log('Formulaire soumis');
             },
-            onFormSubmitted: function($form: any) {
+            onFormSubmitted: () => {
               console.log('Formulaire envoyé avec succès vers HubSpot CRM');
               // Optionnel: ajouter un tracking ou redirection
             }
@@ -42,9 +63,9 @@ export default function HubSpotForm({
         }
       };
       document.head.appendChild(script);
-    } else if ((window as any).hbspt) {
+    } else if (windowWithHubSpot.hbspt) {
       // Si le script est déjà chargé, créer directement le formulaire
-      (window as any).hbspt.forms.create({
+      windowWithHubSpot.hbspt.forms.create({
         region: region,
         portalId: portalId,
         formId: formId,
