@@ -1,6 +1,7 @@
 'use client';
 
 import HubSpotForm from '@/components/HubSpotForm';
+import { trackBusinessEvents } from '@/components/GoogleAnalytics';
 
 export default function FinalCtaSection() {
   const scrollToSection = (sectionId: string) => {
@@ -8,6 +9,16 @@ export default function FinalCtaSection() {
       behavior: 'smooth',
       block: 'start'
     });
+  };
+
+  const handleCtaClick = (ctaName: string, sectionId?: string) => {
+    // Tracking Google Analytics
+    trackBusinessEvents.ctaClicked(ctaName, 'final_cta_section');
+    
+    // Navigation
+    if (sectionId) {
+      scrollToSection(sectionId);
+    }
   };
 
   return (
@@ -33,9 +44,13 @@ export default function FinalCtaSection() {
                 Un simple appel pour comprendre vos enjeux, identifier les opportunités et voir comment nous pouvons travailler ensemble.
               </p>
               
-              {/* Formulaire HubSpot intégré */}
+              {/* Formulaire HubSpot intégré avec tracking */}
               <div className="bg-white/80 dark:bg-gray-anthracite/40 rounded-2xl p-6 mb-6">
-                <HubSpotForm />
+                <div 
+                  onFocus={() => trackBusinessEvents.ctaClicked('contact_form_focused', 'final_cta_section')}
+                >
+                  <HubSpotForm />
+                </div>
               </div>
 
               {/* Alternative Calendly */}
@@ -43,7 +58,10 @@ export default function FinalCtaSection() {
                 <p className="text-sm font-body text-gray-anthracite dark:text-primary-bg/70 mb-4">
                   Ou choisissez directement un créneau dans mon agenda
                 </p>
-                <button className="border-2 border-mint-green text-mint-green hover:bg-mint-green hover:text-white font-title font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 group">
+                <button 
+                  onClick={() => handleCtaClick('calendly_access')}
+                  className="border-2 border-mint-green text-mint-green hover:bg-mint-green hover:text-white font-title font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 group"
+                >
                   <span className="flex items-center gap-2">
                     <span className="group-hover:animate-bounce-in">📅</span>
                     Accéder à mon agenda Calendly
@@ -66,7 +84,7 @@ export default function FinalCtaSection() {
               Découvrez comment d&apos;autres dirigeants ont transformé leurs équipes
             </p>
             <button 
-              onClick={() => scrollToSection('cas-clients')}
+              onClick={() => handleCtaClick('voir_cas_clients', 'cas-clients')}
               className="bg-orange-soft hover:bg-orange-soft/90 text-white font-title font-semibold px-6 py-2 rounded-full transition-colors cursor-pointer"
             >
               Explorer les témoignages
@@ -83,7 +101,7 @@ export default function FinalCtaSection() {
               Évaluez votre maturité commerciale en 2 minutes
             </p>
             <button 
-              onClick={() => scrollToSection('diagnostic')}
+              onClick={() => handleCtaClick('lancer_diagnostic', 'diagnostic')}
               className="bg-blue-ink hover:bg-blue-ink/90 text-white font-title font-semibold px-6 py-2 rounded-full transition-colors cursor-pointer"
             >
               Lancer le test gratuit
