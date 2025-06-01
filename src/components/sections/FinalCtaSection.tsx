@@ -1,5 +1,7 @@
 'use client';
 
+import HubSpotForm from '@/components/HubSpotForm';
+
 export default function FinalCtaSection() {
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({
@@ -31,41 +33,9 @@ export default function FinalCtaSection() {
                 Un simple appel pour comprendre vos enjeux, identifier les opportunités et voir comment nous pouvons travailler ensemble.
               </p>
               
-              {/* Formulaire de contact rapide */}
+              {/* Formulaire HubSpot intégré */}
               <div className="bg-white/80 dark:bg-gray-anthracite/40 rounded-2xl p-6 mb-6">
-                <form className="space-y-4">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <input
-                      type="text"
-                      placeholder="Prénom et nom"
-                      className="w-full px-4 py-3 rounded-xl border border-gray-anthracite/20 focus:border-mint-green focus:outline-none transition-colors font-body"
-                    />
-                    <input
-                      type="email"
-                      placeholder="Email professionnel"
-                      className="w-full px-4 py-3 rounded-xl border border-gray-anthracite/20 focus:border-mint-green focus:outline-none transition-colors font-body"
-                    />
-                  </div>
-                  <input
-                    type="text"
-                    placeholder="Entreprise"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-anthracite/20 focus:border-mint-green focus:outline-none transition-colors font-body"
-                  />
-                  <textarea
-                    rows={3}
-                    placeholder="Votre principal défi commercial en quelques mots"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-anthracite/20 focus:border-mint-green focus:outline-none transition-colors font-body resize-none"
-                  ></textarea>
-                  <button
-                    type="submit"
-                    className="w-full bg-mint-green hover:bg-mint-green/90 text-white font-title font-bold py-4 rounded-xl transition-all duration-300 hover:scale-[1.02] shadow-lg group"
-                  >
-                    <span className="flex items-center justify-center gap-3">
-                      <span className="text-xl group-hover:animate-bounce-in">📞</span>
-                      Prendre rendez-vous (gratuit)
-                    </span>
-                  </button>
-                </form>
+                <HubSpotForm />
               </div>
 
               {/* Alternative Calendly */}
