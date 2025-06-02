@@ -54,3 +54,17 @@ body {
   font-family: 'Nunito', sans-serif;
   font-style: italic;
 }
+
+/* Animation pour le bandeau de logos */
+@keyframes logoScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.hover\:pause:hover {
+  animation-play-state: paused !important;
+}

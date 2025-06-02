@@ -4,6 +4,7 @@ import PromiseSection from "@/components/sections/PromiseSection";
 import AboutSection from "@/components/sections/AboutSection";
 import TestimonialVideoSection from "@/components/sections/TestimonialVideoSection";
 import DiagnosticSection from "@/components/sections/DiagnosticSection";
+import LogoBanner from "@/components/LogoBanner";
 import CaseStudiesSection from "@/components/sections/CaseStudiesSection";
 import MethodValuesSection from "@/components/sections/MethodValuesSection";
 import FinalCtaSection from "@/components/sections/FinalCtaSection";
@@ -19,6 +20,7 @@ export default function Home() {
         <AboutSection />
         <TestimonialVideoSection />
         <DiagnosticSection />
+        <LogoBanner />
         <CaseStudiesSection />
         <MethodValuesSection />
         <FinalCtaSection />
