@@ -59,12 +59,15 @@ export default function FinalCtaSection() {
                   Ou choisissez directement un créneau dans mon agenda
                 </p>
                 <button 
-                  onClick={() => handleCtaClick('calendly_access')}
+                  onClick={() => {
+                    handleCtaClick('hubspot_calendar_access');
+                    window.open('https://meetings.hubspot.com/laurent34/rdv-laurent-45-mn-clone', '_blank');
+                  }}
                   className="border-2 border-mint-green text-mint-green hover:bg-mint-green hover:text-white font-title font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 group"
                 >
                   <span className="flex items-center gap-2">
                     <span className="group-hover:animate-bounce-in">📅</span>
-                    Accéder à mon agenda Calendly
+                    Prenez rendez-vous directement dans mon agenda
                   </span>
                 </button>
               </div>

@@ -1,3 +1,5 @@
+'use client';
+
 export default function TestimonialVideoSection() {
   return (
     <section className="py-16 sm:py-20 bg-primary-bg dark:bg-blue-ink">
@@ -57,7 +59,10 @@ export default function TestimonialVideoSection() {
           <p className="font-body text-gray-anthracite dark:text-primary-bg/70 mb-4">
             Vous aussi, transformez vos résultats commerciaux
           </p>
-          <button className="bg-mint-green/10 hover:bg-mint-green/20 border-2 border-mint-green text-mint-green font-title font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 group">
+          <button 
+            onClick={() => window.open('https://meetings.hubspot.com/laurent34/rdv-laurent-45-mn-clone', '_blank')}
+            className="bg-mint-green/10 hover:bg-mint-green/20 border-2 border-mint-green text-mint-green font-title font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 group"
+          >
             <span className="flex items-center gap-2">
               <span className="group-hover:animate-bounce-in">📞</span>
               Échanger avec Laurent

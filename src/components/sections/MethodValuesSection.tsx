@@ -11,7 +11,7 @@ export default function MethodValuesSection() {
   const values = [
     {
       title: "Responsabilité",
-      description: "Je valorise les personnes qui prennent leur part. Qu&apos;il s&apos;agisse d&apos;un dirigeant, d&apos;un commercial ou de moi-même, chacun est responsable de la qualité de la relation et de la performance.",
+      description: "Je valorise les personnes qui prennent leur part. Qu'il s'agisse d'un dirigeant, d'un commercial ou de moi-même, chacun est responsable de la qualité de la relation et de la performance.",
       icon: "🤝",
       color: "mint-green"
     },
@@ -23,7 +23,7 @@ export default function MethodValuesSection() {
     },
     {
       title: "Engagement",
-      description: "Je suis à fond dans ce que je fais. Et j&apos;attends la même chose de mes clients. Je préfère former moins de gens, mais aller au bout avec eux.",
+      description: "Je suis à fond dans ce que je fais. Et j'attends la même chose de mes clients. Je préfère former moins de gens, mais aller au bout avec eux.",
       icon: "🔥",
       color: "orange-soft"
     },
@@ -35,7 +35,7 @@ export default function MethodValuesSection() {
     },
     {
       title: "Sincérité",
-      description: "Je dis ce que je pense, même quand c&apos;est inconfortable. Je préfère un &quot;non&quot; franc qu&apos;un &quot;oui&quot; tiède.",
+      description: "Je dis ce que je pense, même quand c'est inconfortable. Je préfère un \"non\" franc qu'un \"oui\" tiède.",
       icon: "💭",
       color: "blue-ink"
     }
@@ -69,9 +69,9 @@ export default function MethodValuesSection() {
                 </div>
               </div>
               <p className="text-lg font-body text-gray-anthracite dark:text-primary-bg leading-relaxed">
-                J&apos;aide les dirigeants de PME et leurs équipes commerciales à vendre mieux, plus humainement et plus efficacement, 
+                J'aide les dirigeants de PME et leurs équipes commerciales à vendre mieux, plus humainement et plus efficacement, 
                 en combinant 20 ans de terrain avec la puissance des outils modernes (IA, automatisation, structuration). 
-                Je transforme leur chaos commercial en clarté d&apos;action et en résultats concrets.
+                Je transforme leur chaos commercial en clarté d'action et en résultats concrets.
               </p>
             </div>
           </div>
@@ -92,7 +92,7 @@ export default function MethodValuesSection() {
               </div>
               <p className="text-lg font-body text-gray-anthracite dark:text-primary-bg leading-relaxed">
                 Je veux réhabiliter le métier de commercial comme un métier noble, stratégique et profondément humain. 
-                Dans un monde saturé d&apos;automatisation et de bullshit, je veux prouver qu&apos;une approche rigoureuse, intelligente et sincère peut générer de la croissance durable. 
+                Dans un monde saturé d'automatisation et de bullshit, je veux prouver qu'une approche rigoureuse, intelligente et sincère peut générer de la croissance durable. 
                 Mon objectif : créer la référence de la formation commerciale hybride, qui allie exigence, simplicité et outils augmentés.
               </p>
             </div>
@@ -192,7 +192,7 @@ export default function MethodValuesSection() {
           >
             <span className="flex items-center gap-2">
               <span className="group-hover:animate-bounce-in">🎯</span>
-              Découvrez comment nous travaillons ensemble
+              Parlons de vos défis commerciaux
             </span>
           </button>
         </div>

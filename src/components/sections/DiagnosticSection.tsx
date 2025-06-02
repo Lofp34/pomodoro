@@ -210,6 +210,24 @@ export default function DiagnosticSection() {
           <p className="font-italic text-gray-anthracite dark:text-primary-bg/70">
             2 minutes • Résultat immédiat • Gratuit
           </p>
+          
+          {/* CTA Passer à l'action */}
+          <div className="mt-8 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+            <button 
+              onClick={() => {
+                document.getElementById('contact')?.scrollIntoView({
+                  behavior: 'smooth',
+                  block: 'start'
+                });
+              }}
+              className="bg-mint-green hover:bg-mint-green/90 text-white font-title font-bold px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-mint-green/30 group"
+            >
+              <span className="flex items-center gap-3">
+                <span className="text-xl group-hover:animate-bounce-in">🚀</span>
+                Passer à l'action - Contactez-nous
+              </span>
+            </button>
+          </div>
         </div>
 
         {/* Progress bar */}

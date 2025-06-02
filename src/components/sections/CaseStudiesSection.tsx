@@ -1,3 +1,5 @@
+'use client';
+
 interface CaseStudy {
   id: number;
   companyName: string;
@@ -136,14 +138,22 @@ export default function CaseStudiesSection() {
 
         {/* CTA pour voir plus de témoignages */}
         <div className="text-center animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
-          <button className="bg-mint-green hover:bg-mint-green/90 text-white font-title font-bold px-10 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-mint-green/30 group">
+          <button 
+            onClick={() => {
+              document.getElementById('contact')?.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+              });
+            }}
+            className="bg-mint-green hover:bg-mint-green/90 text-white font-title font-bold px-10 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-mint-green/30 group"
+          >
             <span className="flex items-center gap-3">
-              <span className="text-xl group-hover:animate-bounce-in">📊</span>
-              Voir plus de témoignages
+              <span className="text-xl group-hover:animate-bounce-in">💬</span>
+              Discutons de votre projet
             </span>
           </button>
           <p className="mt-4 font-italic text-gray-anthracite dark:text-primary-bg/70">
-            Découvrez comment d&apos;autres entreprises ont transformé leurs résultats
+            Obtenez votre diagnostic commercial personnalisé
           </p>
         </div>
 
