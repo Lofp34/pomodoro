@@ -20,7 +20,7 @@ export default function AboutSection() {
               {/* Photo de Laurent */}
               <div className="w-full max-w-sm sm:max-w-md mx-auto aspect-square rounded-3xl overflow-hidden border-4 border-mint-green/30 shadow-2xl">
                 <Image
-                  src="/laurentserre2.jpg" 
+                  src="/laurentserre2.png" 
                   alt="Laurent Serre - Consultant en développement commercial"
                   width={400}
                   height={400}

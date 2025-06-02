@@ -103,7 +103,7 @@ export default function PromiseSection() {
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
-                  <span className="text-3xl animate-float" style={{ animationDelay: promise.delay }}>
+                  <span className="text-3xl" style={{ animationDelay: promise.delay }}>
                     {promise.icon}
                   </span>
                 </div>
@@ -113,8 +113,21 @@ export default function PromiseSection() {
                   <p className="text-xl md:text-2xl font-body text-blue-ink dark:text-primary-bg leading-relaxed">
                     {promise.text}
                   </p>
-                  <div className="md:hidden text-mint-green text-xl ml-4">
-                    {activePopup === index ? '−' : '+'}
+                  
+                  {/* Indicateur de contenu détaillé - Version desktop */}
+                  <div className="hidden md:flex items-center ml-4">
+                    <div className={`w-8 h-8 bg-mint-green/10 border-2 border-mint-green rounded-full flex items-center justify-center text-mint-green transition-all duration-300 group-hover:bg-mint-green group-hover:text-white ${index === 0 ? 'animate-pulse' : ''}`}>
+                      <span className="text-sm font-bold">ⓘ</span>
+                    </div>
+                  </div>
+                  
+                  {/* Indicateur de contenu détaillé - Version mobile */}
+                  <div className="md:hidden flex items-center ml-4">
+                    <div className={`w-8 h-8 bg-mint-green/10 border-2 border-mint-green rounded-full flex items-center justify-center text-mint-green transition-all duration-300 ${index === 0 ? 'animate-pulse' : ''}`}>
+                      <span className="text-lg">
+                        {activePopup === index ? '−' : '+'}
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>

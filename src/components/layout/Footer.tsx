@@ -83,8 +83,8 @@ export default function Footer() {
                 <span className="text-lg mt-1">📧</span>
                 <div>
                   <p className="font-body text-primary-bg/80 text-sm">Email</p>
-                  <a href="mailto:contact@laurent-serre.com" className="font-body text-primary-bg hover:text-mint-green transition-colors">
-                    contact@laurent-serre.com
+                  <a href="mailto:ls@laurentserre.com" className="font-body text-primary-bg hover:text-mint-green transition-colors">
+                    ls@laurentserre.com
                   </a>
                 </div>
               </div>
@@ -93,8 +93,8 @@ export default function Footer() {
                 <span className="text-lg mt-1">📞</span>
                 <div>
                   <p className="font-body text-primary-bg/80 text-sm">Téléphone</p>
-                  <a href="tel:+33123456789" className="font-body text-primary-bg hover:text-mint-green transition-colors">
-                    +33 1 23 45 67 89
+                  <a href="tel:+33614944060" className="font-body text-primary-bg hover:text-mint-green transition-colors">
+                    +33 6 14 94 40 60
                   </a>
                 </div>
               </div>
