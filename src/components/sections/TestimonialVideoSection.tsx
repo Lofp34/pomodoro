@@ -2,8 +2,20 @@
 
 export default function TestimonialVideoSection() {
   return (
-    <section className="py-16 sm:py-20 bg-primary-bg dark:bg-blue-ink">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6">
+    <section className="py-16 sm:py-20 relative overflow-hidden">
+      {/* Image de fond */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: 'url(/tableau-de-bord.jpeg)',
+        }}
+      />
+      
+      {/* Overlay pour la lisibilité */}
+      <div className="absolute inset-0 bg-primary-bg/90 dark:bg-blue-ink/90" />
+      
+      {/* Contenu par-dessus le fond */}
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6">
         {/* Titre de la section */}
         <div className="text-center mb-12 animate-fade-in-up">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-title font-bold text-blue-ink dark:text-primary-bg leading-tight mb-4">
@@ -17,7 +29,7 @@ export default function TestimonialVideoSection() {
 
         {/* Contenu vidéo témoignage */}
         <div className="animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-          <div className="bg-white/90 dark:bg-gray-anthracite/40 rounded-3xl p-6 sm:p-8 shadow-xl">
+          <div className="bg-white/95 dark:bg-gray-anthracite/90 backdrop-blur-sm rounded-3xl p-6 sm:p-8 shadow-xl">
             {/* En-tête */}
             <div className="flex items-center justify-center gap-4 mb-6">
               <div className="w-12 h-12 sm:w-16 sm:h-16 bg-mint-green/20 rounded-full flex items-center justify-center">
@@ -46,7 +58,7 @@ export default function TestimonialVideoSection() {
             </div>
 
             {/* Citation ou call-to-action */}
-            <div className="text-center mt-6 p-4 bg-mint-green/5 rounded-xl">
+            <div className="text-center mt-6 p-4 bg-mint-green/10 backdrop-blur-sm rounded-xl">
               <p className="font-italic text-gray-anthracite dark:text-primary-bg/90 leading-relaxed">
                 &quot;Une transformation concrète qui a révolutionné notre approche commerciale&quot;
               </p>
@@ -61,7 +73,7 @@ export default function TestimonialVideoSection() {
           </p>
           <button 
             onClick={() => window.open('https://meetings.hubspot.com/laurent34/rdv-laurent-45-mn-clone', '_blank')}
-            className="bg-mint-green/10 hover:bg-mint-green/20 border-2 border-mint-green text-mint-green font-title font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 group"
+            className="bg-mint-green/10 hover:bg-mint-green/20 border-2 border-mint-green text-mint-green font-title font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 group backdrop-blur-sm"
           >
             <span className="flex items-center gap-2">
               <span className="group-hover:animate-bounce-in">📞</span>

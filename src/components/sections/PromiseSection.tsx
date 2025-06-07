@@ -72,8 +72,20 @@ export default function PromiseSection() {
   };
 
   return (
-    <section className="py-20 bg-primary-bg dark:bg-blue-ink">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="py-20 relative overflow-hidden">
+      {/* Image de fond */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: 'url(/equipedeface.jpg)',
+        }}
+      />
+      
+      {/* Overlay pour la lisibilité */}
+      <div className="absolute inset-0 bg-primary-bg/90 dark:bg-blue-ink/90" />
+      
+      {/* Contenu par-dessus le fond */}
+      <div className="relative z-10 max-w-6xl mx-auto px-6">
         {/* Titre */}
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-title font-bold text-blue-ink dark:text-primary-bg leading-tight">
@@ -92,7 +104,7 @@ export default function PromiseSection() {
               onMouseLeave={handleMouseLeave}
             >
               <div 
-                className="flex items-start gap-6 p-6 bg-white/80 dark:bg-gray-anthracite/40 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] animate-slide-in-left group cursor-pointer md:cursor-default"
+                className="flex items-start gap-6 p-6 bg-white/90 dark:bg-gray-anthracite/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] animate-slide-in-left group cursor-pointer md:cursor-default"
                 style={{ animationDelay: promise.delay }}
                 onClick={() => handleCardClick(index)}
               >
@@ -134,7 +146,7 @@ export default function PromiseSection() {
 
               {/* Popup détaillé */}
               {activePopup === index && (
-                <div className="absolute top-full left-0 right-0 mt-4 bg-white dark:bg-gray-anthracite border-2 border-mint-green rounded-2xl p-6 shadow-2xl z-10 animate-fade-in-up">
+                <div className="absolute top-full left-0 right-0 mt-4 bg-white/95 dark:bg-gray-anthracite/95 backdrop-blur-sm border-2 border-mint-green rounded-2xl p-6 shadow-2xl z-10 animate-fade-in-up">
                   <div className="space-y-4">
                     <h4 className="text-xl font-title font-bold text-blue-ink dark:text-primary-bg">
                       {promise.popup.title}
@@ -154,7 +166,7 @@ export default function PromiseSection() {
                     </div>
                   </div>
                   {/* Flèche pointer vers la carte */}
-                  <div className="absolute -top-2 left-8 w-4 h-4 bg-white dark:bg-gray-anthracite border-l-2 border-t-2 border-mint-green transform rotate-45"></div>
+                  <div className="absolute -top-2 left-8 w-4 h-4 bg-white/95 dark:bg-gray-anthracite/95 border-l-2 border-t-2 border-mint-green transform rotate-45"></div>
                 </div>
               )}
             </div>
@@ -166,7 +178,7 @@ export default function PromiseSection() {
           <div className="inline-block">
             <button 
               onClick={() => scrollToSection('diagnostic')}
-              className="bg-mint-green/10 hover:bg-mint-green/20 border-2 border-mint-green text-mint-green font-title font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 group cursor-pointer"
+              className="bg-mint-green/10 hover:bg-mint-green/20 border-2 border-mint-green text-mint-green font-title font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 group cursor-pointer backdrop-blur-sm"
             >
               <span className="flex items-center gap-2">
                 <span className="group-hover:animate-bounce-in">🔍</span>
