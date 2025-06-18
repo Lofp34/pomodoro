@@ -1,6 +1,7 @@
 'use client';
 
 import Button from "@/components/ui/Button";
+import AnimatedSection from "@/components/ui/AnimatedSection";
 
 const testimonials = [
   {
@@ -49,54 +50,60 @@ export default function TestimonialVideoSection() {
       {/* Contenu par-dessus le fond */}
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6">
         {/* Titre de la section */}
-        <div className="text-center mb-12 animate-fade-in-up">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-title font-bold text-blue-ink dark:text-primary-bg leading-tight mb-4">
-            Ils témoignent de la
-            <span className="block text-mint-green">transformation</span>
-          </h2>
-          <p className="text-lg font-body text-gray-anthracite dark:text-primary-bg/80 max-w-2xl mx-auto">
-            Découvrez comment nos clients ont révolutionné leurs performances commerciales
-          </p>
-        </div>
+        <AnimatedSection animation="slide-up" delay={0}>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-title font-bold text-blue-ink dark:text-primary-bg leading-tight mb-4">
+              Ils témoignent de la
+              <span className="block text-mint-green">transformation</span>
+            </h2>
+            <p className="text-lg font-body text-gray-anthracite dark:text-primary-bg/80 max-w-2xl mx-auto">
+              Découvrez comment nos clients ont révolutionné leurs performances commerciales
+            </p>
+          </div>
+        </AnimatedSection>
 
         {/* Témoignages */}
         <div className="space-y-10">
           {testimonials.map((t, i) => (
-            <div key={i} className="bg-white/95 dark:bg-gray-anthracite/90 backdrop-blur-sm rounded-3xl p-6 sm:p-8 shadow-xl animate-fade-in-up" style={{ animationDelay: `${0.2 + i * 0.2}s` }}>
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-mint-green/20 rounded-full flex items-center justify-center text-2xl sm:text-3xl">
-                  {t.icon}
+            <AnimatedSection key={i} animation="slide-up" delay={200 + i * 200}>
+              <div className="bg-white/95 dark:bg-gray-anthracite/90 backdrop-blur-sm rounded-3xl p-6 sm:p-8 shadow-xl">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-mint-green/20 rounded-full flex items-center justify-center text-2xl sm:text-3xl">
+                    {t.icon}
+                  </div>
+                  <div>
+                    <h3 className="font-title font-bold text-blue-ink dark:text-primary-bg text-lg sm:text-xl">{t.title}</h3>
+                    <p className="font-body text-mint-green font-semibold text-sm sm:text-base">{t.result}</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-title font-bold text-blue-ink dark:text-primary-bg text-lg sm:text-xl">{t.title}</h3>
-                  <p className="font-body text-mint-green font-semibold text-sm sm:text-base">{t.result}</p>
+                <blockquote className="text-gray-anthracite dark:text-primary-bg/90 font-italic text-lg leading-relaxed mb-4">"{t.quote}"</blockquote>
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                  <div className="font-title font-bold text-blue-ink dark:text-primary-bg text-base">
+                    {t.author} <span className="font-normal text-gray-anthracite dark:text-primary-bg/70">{t.role}</span>
+                  </div>
+                  {t.video && <span className="text-xs text-mint-green font-body">{t.video}</span>}
                 </div>
               </div>
-              <blockquote className="text-gray-anthracite dark:text-primary-bg/90 font-italic text-lg leading-relaxed mb-4">“{t.quote}”</blockquote>
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                <div className="font-title font-bold text-blue-ink dark:text-primary-bg text-base">
-                  {t.author} <span className="font-normal text-gray-anthracite dark:text-primary-bg/70">{t.role}</span>
-                </div>
-                {t.video && <span className="text-xs text-mint-green font-body">{t.video}</span>}
-              </div>
-            </div>
+            </AnimatedSection>
           ))}
         </div>
 
         {/* CTA optionnel */}
-        <div className="text-center mt-12 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-          <p className="font-body text-gray-anthracite dark:text-primary-bg/70 mb-4">
-            Vous aussi, transformez vos résultats commerciaux
-          </p>
-          <Button 
-            variant="secondary"
-            icon="📞"
-            onClick={() => window.open('https://meetings.hubspot.com/laurent34/rdv-laurent-45-mn-clone', '_blank')}
-            className="bg-mint-green/10 hover:bg-mint-green/20 border-2 border-mint-green text-mint-green backdrop-blur-sm"
-          >
-            Échanger avec Laurent
-          </Button>
-        </div>
+        <AnimatedSection animation="fade-in" delay={800}>
+          <div className="text-center mt-12">
+            <p className="font-body text-gray-anthracite dark:text-primary-bg/70 mb-4">
+              Vous aussi, transformez vos résultats commerciaux
+            </p>
+            <Button 
+              variant="secondary"
+              icon="📞"
+              onClick={() => window.open('https://meetings.hubspot.com/laurent34/rdv-laurent-45-mn-clone', '_blank')}
+              className="bg-mint-green/10 hover:bg-mint-green/20 border-2 border-mint-green text-mint-green backdrop-blur-sm"
+            >
+              Échanger avec Laurent
+            </Button>
+          </div>
+        </AnimatedSection>
       </div>
     </section>
   );

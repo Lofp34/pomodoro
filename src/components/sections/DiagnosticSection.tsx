@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Button from "@/components/ui/Button";
+import AnimatedSection from "@/components/ui/AnimatedSection";
 
 interface Question {
   id: number;
@@ -133,66 +134,80 @@ export default function DiagnosticSection() {
   if (showResults) {
     return (
       <section id="diagnostic" className="py-20 bg-primary-bg dark:bg-blue-ink">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          {/* Titre */}
+          <AnimatedSection animation="slide-up" delay={0}>
+            <div className="text-center mb-12">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-title font-bold text-blue-ink dark:text-primary-bg leading-tight mb-4">
+                Diagnostic commercial
+                <span className="block text-mint-green">gratuit</span>
+              </h2>
+              <p className="text-lg font-body text-gray-anthracite dark:text-primary-bg/80 max-w-2xl mx-auto">
+                Évaluez votre maturité commerciale en 2 minutes et découvrez vos opportunités d&apos;amélioration
+              </p>
+            </div>
+          </AnimatedSection>
+
           {/* Résultats */}
-          <div className="text-center mb-12 animate-fade-in-up">
-            <div className="text-6xl mb-4">{recommendation.emoji}</div>
-            <h2 className="text-4xl md:text-5xl font-title font-bold text-blue-ink dark:text-primary-bg mb-4">
-              Votre maturité : {recommendation.level}
-            </h2>
-            <div className="bg-white/90 dark:bg-gray-anthracite/40 rounded-3xl p-8 shadow-xl">
-              <div className="flex items-center justify-center gap-4 mb-6">
-                <span className="text-2xl font-title font-bold text-gray-anthracite dark:text-primary-bg">Score :</span>
-                <span className={`text-4xl font-title font-bold text-${recommendation.color}`}>
-                  {score}/20
-                </span>
-              </div>
-              <h3 className="text-2xl font-title font-bold text-blue-ink dark:text-primary-bg mb-4">
+          <AnimatedSection animation="slide-up" delay={200}>
+            <div className="bg-white/90 dark:bg-gray-anthracite/40 rounded-3xl p-8 shadow-xl text-center">
+              <div className="text-6xl mb-6">{recommendation.emoji}</div>
+              <h3 className="text-2xl md:text-3xl font-title font-bold text-blue-ink dark:text-primary-bg mb-4">
                 {recommendation.title}
               </h3>
-              <p className="text-lg font-body text-gray-anthracite dark:text-primary-bg/80 leading-relaxed">
+              <p className="text-lg font-body text-gray-anthracite dark:text-primary-bg/80 mb-6 leading-relaxed">
                 {recommendation.description}
               </p>
+              
+              <div className="inline-block bg-mint-green/10 border-2 border-mint-green rounded-full px-6 py-2 mb-6">
+                <span className="font-title font-bold text-mint-green">
+                  Niveau : {recommendation.level}
+                </span>
+              </div>
             </div>
-          </div>
+          </AnimatedSection>
 
-          {/* Options de suite */}
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
-            <div className="bg-white/80 dark:bg-gray-anthracite/30 rounded-2xl p-6 text-center border-2 border-transparent hover:border-mint-green/50 transition-all duration-300 hover:scale-105">
-              <div className="text-3xl mb-4">🤐</div>
-              <h3 className="font-title font-bold text-blue-ink dark:text-primary-bg mb-2">
-                Je garde le résultat pour moi
-              </h3>
-              <p className="font-body text-gray-anthracite dark:text-primary-bg/80 text-sm">
-                Vous pouvez sauvegarder ce diagnostic pour votre usage personnel
-              </p>
-            </div>
+          {/* Actions */}
+          <AnimatedSection animation="fade-in" delay={400}>
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
+              <div className="bg-white/80 dark:bg-gray-anthracite/30 rounded-2xl p-6 text-center border-2 border-transparent hover:border-mint-green/50 transition-all duration-300 hover:scale-105">
+                <div className="text-3xl mb-4">🤐</div>
+                <h3 className="font-title font-bold text-blue-ink dark:text-primary-bg mb-2">
+                  Je garde le résultat pour moi
+                </h3>
+                <p className="font-body text-gray-anthracite dark:text-primary-bg/80 text-sm">
+                  Vous pouvez sauvegarder ce diagnostic pour votre usage personnel
+                </p>
+              </div>
 
-            <div className="bg-mint-green/10 border-2 border-mint-green rounded-2xl p-6 text-center hover:bg-mint-green/20 transition-all duration-300 hover:scale-105 cursor-pointer">
-              <div className="text-3xl mb-4">🚀</div>
-              <h3 className="font-title font-bold text-blue-ink dark:text-primary-bg mb-2">
-                Je veux aller plus loin
-              </h3>
-              <p className="font-body text-gray-anthracite dark:text-primary-bg/80 text-sm mb-4">
-                Discutons de vos défis et opportunités
-              </p>
-              <Button variant="primary" size="sm">
-                Prendre rendez-vous
-              </Button>
+              <div className="bg-mint-green/10 border-2 border-mint-green rounded-2xl p-6 text-center hover:bg-mint-green/20 transition-all duration-300 hover:scale-105 cursor-pointer">
+                <div className="text-3xl mb-4">🚀</div>
+                <h3 className="font-title font-bold text-blue-ink dark:text-primary-bg mb-2">
+                  Je veux aller plus loin
+                </h3>
+                <p className="font-body text-gray-anthracite dark:text-primary-bg/80 text-sm mb-4">
+                  Discutons de vos défis et opportunités
+                </p>
+                <Button variant="primary" size="sm">
+                  Prendre rendez-vous
+                </Button>
+              </div>
             </div>
-          </div>
+          </AnimatedSection>
 
           {/* Refaire le test */}
-          <div className="text-center">
-            <Button 
-              variant="ghost" 
-              size="sm"
-              onClick={resetDiagnostic}
-              className="font-italic text-gray-anthracite dark:text-primary-bg/70 hover:text-mint-green underline"
-            >
-              Refaire le diagnostic
-            </Button>
-          </div>
+          <AnimatedSection animation="fade-in" delay={600}>
+            <div className="text-center">
+              <Button 
+                variant="ghost" 
+                size="sm"
+                onClick={resetDiagnostic}
+                className="font-italic text-gray-anthracite dark:text-primary-bg/70 hover:text-mint-green underline"
+              >
+                Refaire le diagnostic
+              </Button>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
     );
@@ -200,85 +215,137 @@ export default function DiagnosticSection() {
 
   return (
     <section id="diagnostic" className="py-20 bg-primary-bg dark:bg-blue-ink">
-      <div className="max-w-4xl mx-auto px-6">
-        {/* Titre et sous-titre */}
-        <div className="text-center mb-12 animate-fade-in-up">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-title font-bold text-blue-ink dark:text-primary-bg leading-tight mb-6">
-            Où en est votre
-            <span className="block text-mint-green">maturité commerciale ?</span>
-          </h2>
-          <p className="text-xl font-body text-gray-anthracite dark:text-primary-bg/80 max-w-3xl mx-auto mb-2">
-            5 questions pour évaluer votre niveau et recevoir des recommandations personnalisées
-          </p>
-          <p className="font-italic text-gray-anthracite dark:text-primary-bg/70">
-            2 minutes • Résultat immédiat • Gratuit
-          </p>
-          
-          {/* CTA Passer à l'action */}
-          <div className="mt-8 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            <button 
-              onClick={() => {
-                document.getElementById('contact')?.scrollIntoView({
-                  behavior: 'smooth',
-                  block: 'start'
-                });
-              }}
-              className="bg-mint-green hover:bg-mint-green/90 text-white font-title font-bold px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-mint-green/30 group"
-            >
-              <span className="flex items-center gap-3">
-                <span className="text-xl group-hover:animate-bounce-in">🚀</span>
-                Passer à l'action - Contactez-nous
-              </span>
-            </button>
+      <div className="max-w-4xl mx-auto px-4 sm:px-6">
+        {/* Titre */}
+        <AnimatedSection animation="slide-up" delay={0}>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-title font-bold text-blue-ink dark:text-primary-bg leading-tight mb-4">
+              Diagnostic commercial
+              <span className="block text-mint-green">gratuit</span>
+            </h2>
+            <p className="text-lg font-body text-gray-anthracite dark:text-primary-bg/80 max-w-2xl mx-auto">
+              Évaluez votre maturité commerciale en 2 minutes et découvrez vos opportunités d&apos;amélioration
+            </p>
           </div>
-        </div>
+        </AnimatedSection>
 
-        {/* Progress bar */}
-        <div className="mb-8 animate-fade-in-up">
-          <div className="flex justify-between items-center mb-2">
-            <span className="font-title font-semibold text-blue-ink dark:text-primary-bg">
-              Question {currentQuestion + 1} sur {questions.length}
-            </span>
-            <span className="font-body text-gray-anthracite dark:text-primary-bg/80">
-              {Math.round(((currentQuestion + 1) / questions.length) * 100)}%
-            </span>
-          </div>
-          <div className="w-full bg-gray-anthracite/20 rounded-full h-2">
-            <div 
-              className="bg-mint-green h-2 rounded-full transition-all duration-500"
-              style={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}
-            ></div>
-          </div>
-        </div>
-
-        {/* Question */}
-        <div className="bg-white/90 dark:bg-gray-anthracite/40 rounded-3xl p-8 shadow-xl animate-fade-in-up">
-          <h3 className="text-2xl md:text-3xl font-title font-bold text-blue-ink dark:text-primary-bg mb-8 leading-relaxed">
-            {questions[currentQuestion].text}
-          </h3>
-
-          {/* Réponses */}
-          <div className="space-y-4">
-            {questions[currentQuestion].answers.map((answer, index) => (
-              <button
-                key={index}
-                onClick={() => handleAnswer(answer.points)}
-                className="w-full text-left p-4 bg-primary-bg dark:bg-blue-ink/50 rounded-xl border-2 border-transparent hover:border-mint-green hover:bg-mint-green/5 transition-all duration-300 hover:scale-[1.02] group"
-              >
-                <div className="flex items-center gap-4">
-                  <div className="w-8 h-8 bg-mint-green/20 rounded-full flex items-center justify-center group-hover:bg-mint-green/40 transition-colors">
-                    <span className="font-title font-bold text-mint-green">
-                      {String.fromCharCode(65 + index)}
-                    </span>
-                  </div>
-                  <span className="font-body text-lg text-gray-anthracite dark:text-primary-bg group-hover:text-blue-ink dark:group-hover:text-mint-green">
-                    {answer.text}
+        {!showResults ? (
+          <>
+            {/* Progression */}
+            <AnimatedSection animation="fade-in" delay={200}>
+              <div className="mb-8">
+                <div className="flex justify-between items-center mb-2">
+                  <span className="font-body text-sm text-gray-anthracite dark:text-primary-bg/70">
+                    Question {currentQuestion + 1} sur {questions.length}
+                  </span>
+                  <span className="font-title font-bold text-mint-green">
+                    {Math.round(((currentQuestion + 1) / questions.length) * 100)}%
                   </span>
                 </div>
-              </button>
-            ))}
-          </div>
-        </div>
+                <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                  <div 
+                    className="bg-mint-green h-2 rounded-full transition-all duration-500 ease-out"
+                    style={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}
+                  ></div>
+                </div>
+              </div>
+            </AnimatedSection>
+
+            {/* Question */}
+            <AnimatedSection animation="slide-up" delay={400}>
+              <div className="bg-white/90 dark:bg-gray-anthracite/40 rounded-3xl p-8 shadow-xl">
+                <h3 className="text-2xl md:text-3xl font-title font-bold text-blue-ink dark:text-primary-bg mb-8 leading-relaxed">
+                  {questions[currentQuestion].text}
+                </h3>
+
+                {/* Réponses */}
+                <div className="space-y-4">
+                  {questions[currentQuestion].answers.map((answer, index) => (
+                    <button
+                      key={index}
+                      onClick={() => handleAnswer(answer.points)}
+                      className="w-full text-left p-4 bg-primary-bg dark:bg-blue-ink/50 rounded-xl border-2 border-transparent hover:border-mint-green hover:bg-mint-green/5 transition-all duration-300 hover:scale-[1.02] group"
+                    >
+                      <div className="flex items-center gap-4">
+                        <div className="w-8 h-8 bg-mint-green/20 rounded-full flex items-center justify-center group-hover:bg-mint-green/40 transition-colors">
+                          <span className="font-title font-bold text-mint-green">
+                            {String.fromCharCode(65 + index)}
+                          </span>
+                        </div>
+                        <span className="font-body text-lg text-gray-anthracite dark:text-primary-bg group-hover:text-blue-ink dark:group-hover:text-mint-green">
+                          {answer.text}
+                        </span>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </AnimatedSection>
+          </>
+        ) : (
+          <>
+            {/* Résultats */}
+            <AnimatedSection animation="slide-up" delay={200}>
+              <div className="bg-white/90 dark:bg-gray-anthracite/40 rounded-3xl p-8 shadow-xl text-center">
+                <div className="text-6xl mb-6">{recommendation.emoji}</div>
+                <h3 className="text-2xl md:text-3xl font-title font-bold text-blue-ink dark:text-primary-bg mb-4">
+                  {recommendation.title}
+                </h3>
+                <p className="text-lg font-body text-gray-anthracite dark:text-primary-bg/80 mb-6 leading-relaxed">
+                  {recommendation.description}
+                </p>
+                
+                <div className="inline-block bg-mint-green/10 border-2 border-mint-green rounded-full px-6 py-2 mb-6">
+                  <span className="font-title font-bold text-mint-green">
+                    Niveau : {recommendation.level}
+                  </span>
+                </div>
+              </div>
+            </AnimatedSection>
+
+            {/* Actions */}
+            <AnimatedSection animation="fade-in" delay={400}>
+              <div className="grid md:grid-cols-2 gap-6 mb-8">
+                <div className="bg-white/80 dark:bg-gray-anthracite/30 rounded-2xl p-6 text-center border-2 border-transparent hover:border-mint-green/50 transition-all duration-300 hover:scale-105">
+                  <div className="text-3xl mb-4">🤐</div>
+                  <h3 className="font-title font-bold text-blue-ink dark:text-primary-bg mb-2">
+                    Je garde le résultat pour moi
+                  </h3>
+                  <p className="font-body text-gray-anthracite dark:text-primary-bg/80 text-sm">
+                    Vous pouvez sauvegarder ce diagnostic pour votre usage personnel
+                  </p>
+                </div>
+
+                <div className="bg-mint-green/10 border-2 border-mint-green rounded-2xl p-6 text-center hover:bg-mint-green/20 transition-all duration-300 hover:scale-105 cursor-pointer">
+                  <div className="text-3xl mb-4">🚀</div>
+                  <h3 className="font-title font-bold text-blue-ink dark:text-primary-bg mb-2">
+                    Je veux aller plus loin
+                  </h3>
+                  <p className="font-body text-gray-anthracite dark:text-primary-bg/80 text-sm mb-4">
+                    Discutons de vos défis et opportunités
+                  </p>
+                  <Button variant="primary" size="sm">
+                    Prendre rendez-vous
+                  </Button>
+                </div>
+              </div>
+            </AnimatedSection>
+
+            {/* Refaire le test */}
+            <AnimatedSection animation="fade-in" delay={600}>
+              <div className="text-center">
+                <Button 
+                  variant="ghost" 
+                  size="sm"
+                  onClick={resetDiagnostic}
+                  className="font-italic text-gray-anthracite dark:text-primary-bg/70 hover:text-mint-green underline"
+                >
+                  Refaire le diagnostic
+                </Button>
+              </div>
+            </AnimatedSection>
+          </>
+        )}
       </div>
     </section>
   );

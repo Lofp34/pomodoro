@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Button from "@/components/ui/Button";
+import AnimatedSection from "@/components/ui/AnimatedSection";
 
 export default function PromiseSection() {
   const [activePopup, setActivePopup] = useState<number | null>(null);
@@ -88,108 +89,97 @@ export default function PromiseSection() {
       {/* Contenu par-dessus le fond */}
       <div className="relative z-10 max-w-6xl mx-auto px-6">
         {/* Titre */}
-        <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-title font-bold text-blue-ink dark:text-primary-bg leading-tight">
-            Ce que nous allons changer,
-            <span className="block text-mint-green">ensemble</span>
-          </h2>
-        </div>
+        <AnimatedSection animation="slide-up" delay={0}>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-title font-bold text-blue-ink dark:text-primary-bg leading-tight">
+              Ce que nous allons changer,
+              <span className="block text-mint-green">ensemble</span>
+            </h2>
+          </div>
+        </AnimatedSection>
 
         {/* Liste des promesses */}
-        <div className="max-w-4xl mx-auto space-y-8 mb-12">
+        <div className="space-y-6 mb-16">
           {promises.map((promise, index) => (
-            <div 
-              key={index}
-              className="relative"
-              onMouseEnter={() => handleMouseEnter(index)}
-              onMouseLeave={handleMouseLeave}
-            >
+            <AnimatedSection key={index} animation="slide-up" delay={200 + index * 100}>
               <div 
-                className="flex items-start gap-6 p-6 bg-white/90 dark:bg-gray-anthracite/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] animate-slide-in-left group cursor-pointer md:cursor-default"
-                style={{ animationDelay: promise.delay }}
-                onClick={() => handleCardClick(index)}
+                className="bg-white/90 dark:bg-gray-anthracite/40 backdrop-blur-sm rounded-3xl p-6 md:p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] group cursor-pointer"
+                onClick={() => setActivePopup(activePopup === index ? null : index)}
               >
-                {/* Checkmark et icône */}
-                <div className="flex-shrink-0 flex items-center gap-4">
-                  <div className="w-8 h-8 bg-mint-green rounded-full flex items-center justify-center group-hover:animate-bounce-in">
-                    <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                  <span className="text-3xl" style={{ animationDelay: promise.delay }}>
+                <div className="flex items-center gap-4 md:gap-6">
+                  {/* Icône */}
+                  <div className="text-4xl md:text-5xl animate-float" style={{ animationDelay: promise.delay }}>
                     {promise.icon}
-                  </span>
-                </div>
-                
-                {/* Texte */}
-                <div className="flex-1 flex items-center justify-between">
-                  <p className="text-xl md:text-2xl font-body text-blue-ink dark:text-primary-bg leading-relaxed">
-                    {promise.text}
-                  </p>
-                  
-                  {/* Indicateur de contenu détaillé - Version desktop */}
-                  <div className="hidden md:flex items-center ml-4">
-                    <div className={`w-8 h-8 bg-mint-green/10 border-2 border-mint-green rounded-full flex items-center justify-center text-mint-green transition-all duration-300 group-hover:bg-mint-green group-hover:text-white ${index === 0 ? 'animate-pulse' : ''}`}>
-                      <span className="text-sm font-bold">ⓘ</span>
-                    </div>
                   </div>
-                  
-                  {/* Indicateur de contenu détaillé - Version mobile */}
-                  <div className="md:hidden flex items-center ml-4">
-                    <div className={`w-8 h-8 bg-mint-green/10 border-2 border-mint-green rounded-full flex items-center justify-center text-mint-green transition-all duration-300 ${index === 0 ? 'animate-pulse' : ''}`}>
-                      <span className="text-lg">
-                        {activePopup === index ? '−' : '+'}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
 
-              {/* Popup détaillé */}
-              {activePopup === index && (
-                <div className="absolute top-full left-0 right-0 mt-4 bg-white/95 dark:bg-gray-anthracite/95 backdrop-blur-sm border-2 border-mint-green rounded-2xl p-6 shadow-2xl z-10 animate-fade-in-up">
-                  <div className="space-y-4">
-                    <h4 className="text-xl font-title font-bold text-blue-ink dark:text-primary-bg">
-                      {promise.popup.title}
-                    </h4>
-                    <p className="font-body text-gray-anthracite dark:text-primary-bg/90 leading-relaxed">
-                      {promise.popup.content}
+                  <div className="flex-1 flex items-center justify-between">
+                    <p className="text-xl md:text-2xl font-body text-blue-ink dark:text-primary-bg leading-relaxed">
+                      {promise.text}
                     </p>
-                    <div className="grid grid-cols-2 gap-2">
-                      {promise.popup.highlights.map((highlight, idx) => (
-                        <div key={idx} className="flex items-center gap-2">
-                          <div className="w-2 h-2 bg-mint-green rounded-full"></div>
-                          <span className="font-body text-sm text-blue-ink dark:text-primary-bg/80">
-                            {highlight}
-                          </span>
-                        </div>
-                      ))}
+                    
+                    {/* Indicateur de contenu détaillé - Version desktop */}
+                    <div className="hidden md:flex items-center ml-4">
+                      <div className={`w-8 h-8 bg-mint-green/10 border-2 border-mint-green rounded-full flex items-center justify-center text-mint-green transition-all duration-300 group-hover:bg-mint-green group-hover:text-white ${index === 0 ? 'animate-pulse' : ''}`}>
+                        <span className="text-sm font-bold">ⓘ</span>
+                      </div>
+                    </div>
+                    
+                    {/* Indicateur de contenu détaillé - Version mobile */}
+                    <div className="md:hidden flex items-center ml-4">
+                      <div className={`w-8 h-8 bg-mint-green/10 border-2 border-mint-green rounded-full flex items-center justify-center text-mint-green transition-all duration-300 ${index === 0 ? 'animate-pulse' : ''}`}>
+                        <span className="text-lg">
+                          {activePopup === index ? '−' : '+'}
+                        </span>
+                      </div>
                     </div>
                   </div>
-                  {/* Flèche pointer vers la carte */}
-                  <div className="absolute -top-2 left-8 w-4 h-4 bg-white/95 dark:bg-gray-anthracite/95 border-l-2 border-t-2 border-mint-green transform rotate-45"></div>
                 </div>
-              )}
-            </div>
+
+                {/* Popup détaillé */}
+                {activePopup === index && (
+                  <AnimatedSection animation="fade-in" delay={100}>
+                    <div className="mt-6 p-6 bg-mint-green/5 border border-mint-green/20 rounded-2xl">
+                      <h4 className="font-title font-bold text-blue-ink dark:text-primary-bg text-lg mb-3">
+                        {promise.popup.title}
+                      </h4>
+                      <p className="font-body text-gray-anthracite dark:text-primary-bg/90 leading-relaxed mb-4">
+                        {promise.popup.content}
+                      </p>
+                      <div className="grid sm:grid-cols-2 gap-2">
+                        {promise.popup.highlights.map((highlight, highlightIndex) => (
+                          <div key={highlightIndex} className="flex items-center gap-2">
+                            <div className="w-2 h-2 bg-mint-green rounded-full"></div>
+                            <span className="font-body text-sm text-gray-anthracite dark:text-primary-bg/80">
+                              {highlight}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </AnimatedSection>
+                )}
+              </div>
+            </AnimatedSection>
           ))}
         </div>
 
-        {/* Micro-CTA subtil */}
-        <div className="text-center animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
-          <div className="inline-block">
-            <Button 
-              variant="secondary"
-              icon="🔍"
-              onClick={() => scrollToSection('diagnostic')}
-              className="bg-mint-green/10 hover:bg-mint-green/20 border-2 border-mint-green text-mint-green backdrop-blur-sm"
-            >
-              Faire le diagnostic
-            </Button>
+        <AnimatedSection animation="fade-in" delay={800}>
+          <div className="text-center">
+            <div className="inline-block">
+              <Button 
+                variant="secondary"
+                icon="🔍"
+                onClick={() => scrollToSection('diagnostic')}
+                className="bg-mint-green/10 hover:bg-mint-green/20 border-2 border-mint-green text-mint-green backdrop-blur-sm"
+              >
+                Faire le diagnostic
+              </Button>
+            </div>
+            <p className="mt-4 font-italic text-gray-anthracite dark:text-primary-bg/70 text-sm">
+              Découvrez où vous en êtes vraiment
+            </p>
           </div>
-          <p className="mt-4 font-italic text-gray-anthracite dark:text-primary-bg/70 text-sm">
-            Découvrez où vous en êtes vraiment
-          </p>
-        </div>
+        </AnimatedSection>
       </div>
     </section>
   );

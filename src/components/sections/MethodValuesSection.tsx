@@ -1,6 +1,7 @@
 'use client';
 
 import Button from "@/components/ui/Button";
+import AnimatedSection from "@/components/ui/AnimatedSection";
 
 export default function MethodValuesSection() {
   const scrollToSection = (sectionId: string) => {
@@ -47,17 +48,19 @@ export default function MethodValuesSection() {
     <section className="py-20 bg-primary-bg dark:bg-blue-ink">
       <div className="max-w-6xl mx-auto px-6">
         {/* Titre */}
-        <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-title font-bold text-blue-ink dark:text-primary-bg leading-tight">
-            Mission, Vision &
-            <span className="block text-mint-green">Valeurs</span>
-          </h2>
-        </div>
+        <AnimatedSection animation="slide-up" delay={0}>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-title font-bold text-blue-ink dark:text-primary-bg leading-tight">
+              Mission, Vision &
+              <span className="block text-mint-green">Valeurs</span>
+            </h2>
+          </div>
+        </AnimatedSection>
 
         {/* Mission & Vision - Grandes cartes */}
         <div className="grid lg:grid-cols-2 gap-8 mb-16">
           {/* Mission */}
-          <div className="animate-slide-in-left">
+          <AnimatedSection animation="slide-left" delay={200}>
             <div className="bg-white/90 dark:bg-gray-anthracite/40 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] h-full">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-16 h-16 bg-mint-green/10 rounded-2xl flex items-center justify-center">
@@ -76,10 +79,10 @@ export default function MethodValuesSection() {
                 Je transforme leur chaos commercial en clarté d'action et en résultats concrets.
               </p>
             </div>
-          </div>
+          </AnimatedSection>
 
           {/* Vision */}
-          <div className="animate-slide-in-right">
+          <AnimatedSection animation="slide-right" delay={400}>
             <div className="bg-white/90 dark:bg-gray-anthracite/40 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] h-full">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-16 h-16 bg-blue-ink/10 rounded-2xl flex items-center justify-center">
@@ -98,18 +101,14 @@ export default function MethodValuesSection() {
                 Mon objectif : créer la référence de la formation commerciale hybride, qui allie exigence, simplicité et outils augmentés.
               </p>
             </div>
-          </div>
+          </AnimatedSection>
         </div>
 
         {/* Valeurs - 3 cartes centrées */}
         <div className="flex justify-center mb-8">
           <div className="grid md:grid-cols-3 gap-6 max-w-4xl w-full">
             {values.slice(0, 3).map((value, index) => (
-              <div 
-                key={index}
-                className="animate-fade-in-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
+              <AnimatedSection key={index} animation="slide-up" delay={600 + index * 100}>
                 <div className="bg-white/90 dark:bg-gray-anthracite/40 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] h-full group">
                   <div className="flex items-center gap-3 mb-4">
                     <div className={`w-12 h-12 bg-${value.color}/10 rounded-xl flex items-center justify-center group-hover:bg-${value.color}/20 transition-colors`}>
@@ -126,7 +125,7 @@ export default function MethodValuesSection() {
                     {value.description}
                   </p>
                 </div>
-              </div>
+              </AnimatedSection>
             ))}
           </div>
         </div>
@@ -135,11 +134,7 @@ export default function MethodValuesSection() {
         <div className="flex justify-center mb-16">
           <div className="grid md:grid-cols-2 gap-6 max-w-2xl w-full">
             {values.slice(3, 5).map((value, index) => (
-              <div 
-                key={index + 3}
-                className="animate-fade-in-up"
-                style={{ animationDelay: `${(index + 3) * 0.1}s` }}
-              >
+              <AnimatedSection key={index + 3} animation="slide-up" delay={900 + index * 100}>
                 <div className="bg-white/90 dark:bg-gray-anthracite/40 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] h-full group">
                   <div className="flex items-center gap-3 mb-4">
                     <div className={`w-12 h-12 bg-${value.color}/10 rounded-xl flex items-center justify-center group-hover:bg-${value.color}/20 transition-colors`}>
@@ -156,47 +151,51 @@ export default function MethodValuesSection() {
                     {value.description}
                   </p>
                 </div>
-              </div>
+              </AnimatedSection>
             ))}
           </div>
         </div>
 
         {/* Section philosophie */}
-        <div className="text-center animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-          <div className="bg-white/80 dark:bg-gray-anthracite/30 rounded-3xl p-8 shadow-xl max-w-4xl mx-auto">
-            <h3 className="text-2xl md:text-3xl font-title font-bold text-blue-ink dark:text-primary-bg mb-6">
-              Ma philosophie en une phrase
-            </h3>
-            <blockquote className="text-xl md:text-2xl font-italic text-gray-anthracite dark:text-primary-bg leading-relaxed">
-              &quot;Le succès commercial ne vient pas de techniques magiques, mais de{" "}
-              <span className="font-bold text-mint-green">méthodes éprouvées</span>{" "}
-              appliquées avec{" "}
-              <span className="font-bold text-orange-soft">constance</span>{" "}
-              et{" "}
-              <span className="font-bold text-blue-ink dark:text-mint-green">authenticité</span>.&quot;
-            </blockquote>
-            <footer className="mt-6">
-              <cite className="font-title font-bold text-blue-ink dark:text-primary-bg not-italic">
-                Laurent Serre
-              </cite>
-            </footer>
+        <AnimatedSection animation="fade-in" delay={1100}>
+          <div className="text-center">
+            <div className="bg-white/80 dark:bg-gray-anthracite/30 rounded-3xl p-8 shadow-xl max-w-4xl mx-auto">
+              <h3 className="text-2xl md:text-3xl font-title font-bold text-blue-ink dark:text-primary-bg mb-6">
+                Ma philosophie en une phrase
+              </h3>
+              <blockquote className="text-xl md:text-2xl font-italic text-gray-anthracite dark:text-primary-bg leading-relaxed">
+                &quot;Le succès commercial ne vient pas de techniques magiques, mais de{" "}
+                <span className="font-bold text-mint-green">méthodes éprouvées</span>{" "}
+                appliquées avec{" "}
+                <span className="font-bold text-orange-soft">constance</span>{" "}
+                et{" "}
+                <span className="font-bold text-blue-ink dark:text-mint-green">authenticité</span>.&quot;
+              </blockquote>
+              <footer className="mt-6">
+                <cite className="font-title font-bold text-blue-ink dark:text-primary-bg not-italic">
+                  Laurent Serre
+                </cite>
+              </footer>
+            </div>
           </div>
-        </div>
+        </AnimatedSection>
 
         {/* CTA subtil */}
-        <div className="text-center mt-12 animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
-          <p className="font-body text-gray-anthracite dark:text-primary-bg/80 mb-6">
-            Ces valeurs guident chaque mission, chaque conseil, chaque transformation.
-          </p>
-          <Button 
-            variant="secondary"
-            icon="🎯"
-            onClick={() => scrollToSection('contact')}
-            className="bg-mint-green/10 hover:bg-mint-green/20 border-2 border-mint-green text-mint-green"
-          >
-            Parlons de vos défis commerciaux
-          </Button>
-        </div>
+        <AnimatedSection animation="fade-in" delay={1300}>
+          <div className="text-center mt-12">
+            <p className="font-body text-gray-anthracite dark:text-primary-bg/80 mb-6">
+              Ces valeurs guident chaque mission, chaque conseil, chaque transformation.
+            </p>
+            <Button 
+              variant="secondary"
+              icon="🎯"
+              onClick={() => scrollToSection('contact')}
+              className="bg-mint-green/10 hover:bg-mint-green/20 border-2 border-mint-green text-mint-green"
+            >
+              Parlons de vos défis commerciaux
+            </Button>
+          </div>
+        </AnimatedSection>
       </div>
     </section>
   );
