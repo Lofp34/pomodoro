@@ -130,9 +130,9 @@ const ProcessSection = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="bg-gradient-to-r from-mint-green to-blue-ink rounded-2xl p-8 md:p-12 text-white text-center"
         >
-          <h3 className="text-2xl md:text-3xl font-bold mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">
             Performance = Activité × Compétence
-          </h3>
+          </h2>
           <p className="text-lg mb-8 opacity-90 max-w-2xl mx-auto">
             Le premier programme à permettre un suivi objectif des commerciaux 
             avec alignement continu et résultats mesurables.
