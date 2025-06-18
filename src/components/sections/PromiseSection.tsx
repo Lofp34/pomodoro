@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Button from "@/components/ui/Button";
 
 export default function PromiseSection() {
   const [activePopup, setActivePopup] = useState<number | null>(null);
@@ -176,15 +177,14 @@ export default function PromiseSection() {
         {/* Micro-CTA subtil */}
         <div className="text-center animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
           <div className="inline-block">
-            <button 
+            <Button 
+              variant="secondary"
+              icon="🔍"
               onClick={() => scrollToSection('diagnostic')}
-              className="bg-mint-green/10 hover:bg-mint-green/20 border-2 border-mint-green text-mint-green font-title font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 group cursor-pointer backdrop-blur-sm"
+              className="bg-mint-green/10 hover:bg-mint-green/20 border-2 border-mint-green text-mint-green backdrop-blur-sm"
             >
-              <span className="flex items-center gap-2">
-                <span className="group-hover:animate-bounce-in">🔍</span>
-                Faire le diagnostic
-              </span>
-            </button>
+              Faire le diagnostic
+            </Button>
           </div>
           <p className="mt-4 font-italic text-gray-anthracite dark:text-primary-bg/70 text-sm">
             Découvrez où vous en êtes vraiment

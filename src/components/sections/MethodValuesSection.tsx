@@ -1,5 +1,7 @@
 'use client';
 
+import Button from "@/components/ui/Button";
+
 export default function MethodValuesSection() {
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({
@@ -186,15 +188,14 @@ export default function MethodValuesSection() {
           <p className="font-body text-gray-anthracite dark:text-primary-bg/80 mb-6">
             Ces valeurs guident chaque mission, chaque conseil, chaque transformation.
           </p>
-          <button 
+          <Button 
+            variant="secondary"
+            icon="🎯"
             onClick={() => scrollToSection('contact')}
-            className="bg-mint-green/10 hover:bg-mint-green/20 border-2 border-mint-green text-mint-green font-title font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 group cursor-pointer"
+            className="bg-mint-green/10 hover:bg-mint-green/20 border-2 border-mint-green text-mint-green"
           >
-            <span className="flex items-center gap-2">
-              <span className="group-hover:animate-bounce-in">🎯</span>
-              Parlons de vos défis commerciaux
-            </span>
-          </button>
+            Parlons de vos défis commerciaux
+          </Button>
         </div>
       </div>
     </section>

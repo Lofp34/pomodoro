@@ -1,5 +1,7 @@
 'use client';
 
+import Button from "@/components/ui/Button";
+
 export default function ProblemSection() {
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({
@@ -97,15 +99,15 @@ export default function ProblemSection() {
 
           {/* CTA incitatif */}
           <div className="animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
-            <button
+            <Button
+              variant="primary"
+              size="lg"
+              icon="🚀"
               onClick={() => scrollToSection('contact')}
-              className="bg-gradient-to-r from-mint-green to-mint-green/90 hover:from-mint-green/90 hover:to-mint-green text-white font-title font-bold px-12 py-5 rounded-full text-xl transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-mint-green/40 animate-glow group cursor-pointer"
+              className="px-12 py-5 text-xl"
             >
-              <span className="flex items-center gap-3">
-                <span className="text-2xl group-hover:animate-bounce-in">🚀</span>
-                Parlons-en maintenant !
-              </span>
-            </button>
+              Parlons-en maintenant !
+            </Button>
             <p className="mt-4 font-italic text-white/80">
               Échange gratuit • Sans engagement • Solution sur mesure
             </p>

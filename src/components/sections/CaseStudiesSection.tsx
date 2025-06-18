@@ -1,5 +1,7 @@
 'use client';
 
+import Button from "@/components/ui/Button";
+
 interface CaseStudy {
   id: number;
   companyName: string;
@@ -63,8 +65,8 @@ export default function CaseStudiesSection() {
         {/* Titre */}
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-title font-bold text-blue-ink dark:text-primary-bg leading-tight">
-            Ils l&apos;ont fait.
-            <span className="block text-mint-green">Et cela a changé la donne.</span>
+            Ils témoignent de la
+            <span className="block text-mint-green">transformation</span>
           </h2>
         </div>
 
@@ -138,20 +140,19 @@ export default function CaseStudiesSection() {
 
         {/* CTA pour voir plus de témoignages */}
         <div className="text-center animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
-          <button 
+          <Button 
+            variant="primary"
+            size="lg"
+            icon="💬"
             onClick={() => {
               document.getElementById('contact')?.scrollIntoView({
                 behavior: 'smooth',
                 block: 'start'
               });
             }}
-            className="bg-mint-green hover:bg-mint-green/90 text-white font-title font-bold px-10 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-mint-green/30 group"
           >
-            <span className="flex items-center gap-3">
-              <span className="text-xl group-hover:animate-bounce-in">💬</span>
-              Discutons de votre projet
-            </span>
-          </button>
+            Discutons de votre projet
+          </Button>
           <p className="mt-4 font-italic text-gray-anthracite dark:text-primary-bg/70">
             Obtenez votre diagnostic commercial personnalisé
           </p>

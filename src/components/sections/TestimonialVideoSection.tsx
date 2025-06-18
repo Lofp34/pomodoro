@@ -1,5 +1,7 @@
 'use client';
 
+import Button from "@/components/ui/Button";
+
 const testimonials = [
   {
     icon: '💻',
@@ -86,15 +88,14 @@ export default function TestimonialVideoSection() {
           <p className="font-body text-gray-anthracite dark:text-primary-bg/70 mb-4">
             Vous aussi, transformez vos résultats commerciaux
           </p>
-          <button 
+          <Button 
+            variant="secondary"
+            icon="📞"
             onClick={() => window.open('https://meetings.hubspot.com/laurent34/rdv-laurent-45-mn-clone', '_blank')}
-            className="bg-mint-green/10 hover:bg-mint-green/20 border-2 border-mint-green text-mint-green font-title font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 group backdrop-blur-sm"
+            className="bg-mint-green/10 hover:bg-mint-green/20 border-2 border-mint-green text-mint-green backdrop-blur-sm"
           >
-            <span className="flex items-center gap-2">
-              <span className="group-hover:animate-bounce-in">📞</span>
-              Échanger avec Laurent
-            </span>
-          </button>
+            Échanger avec Laurent
+          </Button>
         </div>
       </div>
     </section>

@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import Button from "@/components/ui/Button";
 
 const NAV_ITEMS = [
   { label: "Accueil", target: "top" },
@@ -43,12 +44,14 @@ export default function Header() {
         <ul className="flex gap-2 sm:gap-4 md:gap-8">
           {NAV_ITEMS.map((item) => (
             <li key={item.target}>
-              <button
+              <Button
+                variant="ghost"
+                size="sm"
                 onClick={() => scrollToSection(item.target)}
-                className="bg-transparent text-primary-bg/90 hover:text-mint-green font-body font-medium px-3 py-2 rounded transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-mint-green/60"
+                className="px-3 py-2 text-primary-bg/90 hover:text-mint-green hover:bg-mint-green/10"
               >
                 {item.label}
-              </button>
+              </Button>
             </li>
           ))}
         </ul>

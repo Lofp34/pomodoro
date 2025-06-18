@@ -1,6 +1,7 @@
 'use client';
 
 import HubSpotForm from '@/components/HubSpotForm';
+import Button from '@/components/ui/Button';
 import { trackBusinessEvents } from '@/components/GoogleAnalytics';
 
 export default function FinalCtaSection() {
@@ -58,18 +59,17 @@ export default function FinalCtaSection() {
                 <p className="text-sm font-body text-gray-anthracite dark:text-primary-bg/70 mb-4">
                   Ou choisissez directement un créneau dans mon agenda
                 </p>
-                <button 
+                <Button 
+                  variant="secondary"
+                  icon="📅"
                   onClick={() => {
                     handleCtaClick('hubspot_calendar_access');
                     window.open('https://meetings.hubspot.com/laurent34/rdv-laurent-45-mn-clone', '_blank');
                   }}
-                  className="border-2 border-mint-green text-mint-green hover:bg-mint-green hover:text-white font-title font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 group"
+                  className="border-2 border-mint-green text-mint-green hover:bg-mint-green hover:text-white"
                 >
-                  <span className="flex items-center gap-2">
-                    <span className="group-hover:animate-bounce-in">📅</span>
-                    Prenez rendez-vous directement dans mon agenda
-                  </span>
-                </button>
+                  Prenez rendez-vous directement dans mon agenda
+                </Button>
               </div>
             </div>
           </div>
@@ -103,12 +103,13 @@ export default function FinalCtaSection() {
             <p className="font-body text-gray-anthracite dark:text-primary-bg/80 text-sm mb-4">
               Évaluez votre maturité commerciale en 2 minutes
             </p>
-            <button 
+            <Button 
+              variant="primary"
+              size="sm"
               onClick={() => handleCtaClick('lancer_diagnostic', 'diagnostic')}
-              className="bg-blue-ink hover:bg-blue-ink/90 text-white font-title font-semibold px-6 py-2 rounded-full transition-colors cursor-pointer"
             >
               Lancer le test gratuit
-            </button>
+            </Button>
           </div>
         </div>
 

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Button from "@/components/ui/Button";
 
 interface Question {
   id: number;
@@ -175,20 +176,22 @@ export default function DiagnosticSection() {
               <p className="font-body text-gray-anthracite dark:text-primary-bg/80 text-sm mb-4">
                 Discutons de vos défis et opportunités
               </p>
-              <button className="bg-mint-green text-white font-title font-semibold px-6 py-2 rounded-full hover:bg-mint-green/90 transition-colors">
+              <Button variant="primary" size="sm">
                 Prendre rendez-vous
-              </button>
+              </Button>
             </div>
           </div>
 
           {/* Refaire le test */}
           <div className="text-center">
-            <button
+            <Button 
+              variant="ghost" 
+              size="sm"
               onClick={resetDiagnostic}
-              className="font-italic text-gray-anthracite dark:text-primary-bg/70 hover:text-mint-green transition-colors underline"
+              className="font-italic text-gray-anthracite dark:text-primary-bg/70 hover:text-mint-green underline"
             >
               Refaire le diagnostic
-            </button>
+            </Button>
           </div>
         </div>
       </section>

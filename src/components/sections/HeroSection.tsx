@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Button from "@/components/ui/Button";
 
 export default function HeroSection() {
   const scrollToSection = (sectionId: string) => {
@@ -65,25 +66,25 @@ export default function HeroSection() {
 
           {/* CTAs principaux */}
           <div className="flex flex-col gap-4 sm:gap-6 lg:flex-row justify-center items-center pt-6 sm:pt-8 pb-12 sm:pb-16 px-4">
-            <button 
+            <Button 
+              variant="primary"
+              size="lg"
+              icon="🎯"
               onClick={() => scrollToSection('diagnostic')}
-              className="w-full sm:w-auto bg-mint-green hover:bg-mint-green/90 text-white font-title font-bold px-8 sm:px-10 py-4 sm:py-5 rounded-full text-base sm:text-lg transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-mint-green/30 animate-glow group cursor-pointer"
+              className="w-full sm:w-auto"
             >
-              <span className="flex items-center justify-center gap-3">
-                <span className="text-xl sm:text-2xl group-hover:animate-bounce-in">🎯</span>
-                Faire le diagnostic gratuit
-              </span>
-            </button>
+              Faire le diagnostic gratuit
+            </Button>
             
-            <button 
+            <Button 
+              variant="outline"
+              size="lg"
+              icon="📊"
               onClick={() => scrollToSection('cas-clients')}
-              className="w-full sm:w-auto border-3 border-white text-white hover:bg-white hover:text-blue-ink font-title font-bold px-8 sm:px-10 py-4 sm:py-5 rounded-full text-base sm:text-lg transition-all duration-300 hover:scale-105 group shadow-lg cursor-pointer"
+              className="w-full sm:w-auto"
             >
-              <span className="flex items-center justify-center gap-3">
-                <span className="text-xl sm:text-2xl group-hover:animate-bounce-in">📊</span>
-                Voir les cas clients
-              </span>
-            </button>
+              Voir les cas clients
+            </Button>
           </div>
         </div>
       </div>
