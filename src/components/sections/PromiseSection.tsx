@@ -72,7 +72,7 @@ export default function PromiseSection() {
   };
 
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section id="offre" className="py-20 relative overflow-hidden">
       {/* Image de fond */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"

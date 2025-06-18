@@ -11,7 +11,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="min-h-screen relative overflow-hidden flex items-center justify-center">
+    <section className="min-h-screen relative overflow-hidden flex items-center justify-center pt-20">
       {/* Image de fond avec overlay */}
       <div className="absolute inset-0 z-0">
         <Image

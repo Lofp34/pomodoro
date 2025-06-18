@@ -1,5 +1,35 @@
 'use client';
 
+const testimonials = [
+  {
+    icon: '💻',
+    title: 'Expertise Commerciale + Accompagnement en Vente',
+    result: '+50% Objectifs Atteints & Adhérents Doublés',
+    quote: 'Grâce à l\'accompagnement de Laurent sur la performance commerciale, nous avons obtenu une progression de plus de 50 % des objectifs réalisés sur le dernier semestre. Concrètement, nous avons doublé notre nombre d\'adhérents. Je recommande de suivre une formation avec Laurent, car ça vaut vraiment le coup !',
+    author: 'Marc Dupont',
+    role: 'Directeur Commercial',
+    video: 'Témoignage vidéo • 30s',
+  },
+  {
+    icon: '🎯',
+    title: 'Dynamique Business Formation Commerciale',
+    result: '+40% CA & +90% en 2 mois',
+    quote: 'Cette formation m\'a appris à apprécier le commerce. Au niveau des chiffres, c\'est là que ça a bien explosé : j\'ai fait plus 40 % de chiffre d\'affaires ! Et ce n\'est pas tout, sur les deux derniers mois, nous sommes sur une évolution de plus 90 % par rapport à l\'année dernière, ce qui est quand même assez dingue.',
+    author: 'Léa Bernard',
+    role: 'Fondatrice & CEO',
+    video: '',
+  },
+  {
+    icon: '📈',
+    title: 'Stratégies Vente Pro Optimisation Commerciale',
+    result: '+39% Objectif CA & +50% Chiffre Personnel',
+    quote: 'J\'ai suivi le parcours de perfectionnement avec Laurent Serre pour booster mes compétences commerciales. Les résultats sont là : sur la clôture du dernier trimestre fiscal, nous avons réalisé une progression de 39 % des chiffres d\'affaires par rapport à l\'objectif. Ce dernier semestre, j\'ai réussi à augmenter mon chiffre de 50 % grâce à son accompagnement, la structuration du parcours et son aide pour structurer notre plan de vente.',
+    author: 'Clémentine Dubois',
+    role: 'Responsable Développement Commercial',
+    video: '',
+  },
+];
+
 export default function TestimonialVideoSection() {
   return (
     <section className="py-16 sm:py-20 relative overflow-hidden">
@@ -27,43 +57,28 @@ export default function TestimonialVideoSection() {
           </p>
         </div>
 
-        {/* Contenu vidéo témoignage */}
-        <div className="animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-          <div className="bg-white/95 dark:bg-gray-anthracite/90 backdrop-blur-sm rounded-3xl p-6 sm:p-8 shadow-xl">
-            {/* En-tête */}
-            <div className="flex items-center justify-center gap-4 mb-6">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-mint-green/20 rounded-full flex items-center justify-center">
-                <span className="text-2xl sm:text-3xl">🗣️</span>
+        {/* Témoignages */}
+        <div className="space-y-10">
+          {testimonials.map((t, i) => (
+            <div key={i} className="bg-white/95 dark:bg-gray-anthracite/90 backdrop-blur-sm rounded-3xl p-6 sm:p-8 shadow-xl animate-fade-in-up" style={{ animationDelay: `${0.2 + i * 0.2}s` }}>
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-mint-green/20 rounded-full flex items-center justify-center text-2xl sm:text-3xl">
+                  {t.icon}
+                </div>
+                <div>
+                  <h3 className="font-title font-bold text-blue-ink dark:text-primary-bg text-lg sm:text-xl">{t.title}</h3>
+                  <p className="font-body text-mint-green font-semibold text-sm sm:text-base">{t.result}</p>
+                </div>
               </div>
-              <div className="text-center">
-                <h3 className="font-title font-bold text-blue-ink dark:text-primary-bg text-xl sm:text-2xl">
-                  Témoignage Client
-                </h3>
-                <p className="font-body text-sm sm:text-base text-gray-anthracite dark:text-primary-bg/80">
-                  Retour d&apos;expérience authentique
-                </p>
+              <blockquote className="text-gray-anthracite dark:text-primary-bg/90 font-italic text-lg leading-relaxed mb-4">“{t.quote}”</blockquote>
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                <div className="font-title font-bold text-blue-ink dark:text-primary-bg text-base">
+                  {t.author} <span className="font-normal text-gray-anthracite dark:text-primary-bg/70">{t.role}</span>
+                </div>
+                {t.video && <span className="text-xs text-mint-green font-body">{t.video}</span>}
               </div>
             </div>
-            
-            {/* Vidéo YouTube intégrée */}
-            <div className="aspect-video rounded-2xl overflow-hidden shadow-lg">
-              <iframe
-                src="https://www.youtube.com/embed/9GZmRFs3uMo"
-                title="Témoignage client - Laurent Serre Développement"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-                className="w-full h-full"
-              ></iframe>
-            </div>
-
-            {/* Citation ou call-to-action */}
-            <div className="text-center mt-6 p-4 bg-mint-green/10 backdrop-blur-sm rounded-xl">
-              <p className="font-italic text-gray-anthracite dark:text-primary-bg/90 leading-relaxed">
-                &quot;Une transformation concrète qui a révolutionné notre approche commerciale&quot;
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
 
         {/* CTA optionnel */}
