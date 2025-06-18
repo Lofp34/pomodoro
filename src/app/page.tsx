@@ -5,7 +5,6 @@ import AboutSection from "@/components/sections/AboutSection";
 import TestimonialVideoSection from "@/components/sections/TestimonialVideoSection";
 import DiagnosticSection from "@/components/sections/DiagnosticSection";
 import LogoBanner from "@/components/LogoBanner";
-import CaseStudiesSection from "@/components/sections/CaseStudiesSection";
 import MethodValuesSection from "@/components/sections/MethodValuesSection";
 import FinalCtaSection from "@/components/sections/FinalCtaSection";
 import Footer from "@/components/layout/Footer";
@@ -21,7 +20,6 @@ export default function Home() {
         <TestimonialVideoSection />
         <DiagnosticSection />
         <LogoBanner />
-        <CaseStudiesSection />
         <MethodValuesSection />
         <FinalCtaSection />
       </main>

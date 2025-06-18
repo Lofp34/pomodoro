@@ -34,7 +34,7 @@ const testimonials = [
 
 export default function TestimonialVideoSection() {
   return (
-    <section className="py-16 sm:py-20 relative overflow-hidden">
+    <section id="cas-clients" className="py-16 sm:py-20 relative overflow-hidden">
       {/* Image de fond */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
