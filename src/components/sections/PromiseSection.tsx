@@ -170,7 +170,7 @@ export default function PromiseSection() {
                 variant="secondary"
                 icon="🔍"
                 onClick={() => scrollToSection('diagnostic')}
-                className="bg-mint-green/10 hover:bg-mint-green/20 border-2 border-mint-green text-mint-green backdrop-blur-sm"
+                className="bg-mint-green text-white border-2 border-mint-green hover:bg-mint-green/90 hover:text-white shadow-lg"
               >
                 Faire le diagnostic
               </Button>

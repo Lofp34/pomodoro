@@ -1,35 +1,50 @@
 'use client';
 
+import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, A11y } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import Button from "@/components/ui/Button";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 
 const testimonials = [
   {
-    icon: '💻',
-    title: 'Expertise Commerciale + Accompagnement en Vente',
-    result: '+50% Objectifs Atteints & Adhérents Doublés',
-    quote: 'Grâce à l\'accompagnement de Laurent sur la performance commerciale, nous avons obtenu une progression de plus de 50 % des objectifs réalisés sur le dernier semestre. Concrètement, nous avons doublé notre nombre d\'adhérents. Je recommande de suivre une formation avec Laurent, car ça vaut vraiment le coup !',
-    author: 'Marc Dupont',
-    role: 'Directeur Commercial',
-    video: 'Témoignage vidéo • 30s',
+    name: "Alexis Alvarez",
+    role: "CEO Queoval",
+    photo: "/images/Alexis Alvarez.jpeg",
+    quote: "Le parcours avec Laurent nous a permis une progression de plus de 50% des objectifs réalisés sur le dernier semestre par rapport au semestre de l'année dernière. On dit merci à Laurent !",
   },
   {
-    icon: '🎯',
-    title: 'Dynamique Business Formation Commerciale',
-    result: '+40% CA & +90% en 2 mois',
-    quote: 'Cette formation m\'a appris à apprécier le commerce. Au niveau des chiffres, c\'est là que ça a bien explosé : j\'ai fait plus 40 % de chiffre d\'affaires ! Et ce n\'est pas tout, sur les deux derniers mois, nous sommes sur une évolution de plus 90 % par rapport à l\'année dernière, ce qui est quand même assez dingue.',
-    author: 'Léa Bernard',
-    role: 'Fondatrice & CEO',
-    video: '',
+    name: "Sacha Raguet",
+    role: "Responsable commercial Au fil des Toits",
+    photo: "/images/Sacha Raguet.jpeg",
+    quote: "LAURENT nous a donné l'amour du commerce et surtout au niveau des chiffres, on a explosé avec 40 % d'augmentation",
   },
   {
-    icon: '📈',
-    title: 'Stratégies Vente Pro Optimisation Commerciale',
-    result: '+39% Objectif CA & +50% Chiffre Personnel',
-    quote: 'J\'ai suivi le parcours de perfectionnement avec Laurent Serre pour booster mes compétences commerciales. Les résultats sont là : sur la clôture du dernier trimestre fiscal, nous avons réalisé une progression de 39 % des chiffres d\'affaires par rapport à l\'objectif. Ce dernier semestre, j\'ai réussi à augmenter mon chiffre de 50 % grâce à son accompagnement, la structuration du parcours et son aide pour structurer notre plan de vente.',
-    author: 'Clémentine Dubois',
-    role: 'Responsable Développement Commercial',
-    video: '',
+    name: "Elisa Gorbatoff",
+    role: "Responsable commerciale Evolvia",
+    photo: "/images/Elisa Gorbatoff.jpeg",
+    quote: "L'accompagnement de Laurent nous a permis de finir l'année de manière incroyable avec une hausse de 90 % de notre chiffre d'affaires !",
+  },
+  {
+    name: "Kristina Kovriznoh",
+    role: "Responsable commerciale Creavea",
+    photo: "/images/Kristina Kovriznoh.jpeg",
+    quote: "Sur le deuxieme trimestre nous avons fait une progression inespérée de 39%",
+  },
+  {
+    name: "Charles Mancini",
+    role: "Directeur commercial",
+    photo: "/images/Charles Manicini.jpeg",
+    quote: "Laurent a mené un audit en profondeur, la méthode rigoureuse et efficace qui nous permis d'avoir des signatures plus reccurentes, des prospects plus à l'écoute, et surtout, 35% de progression du C.A.",
+  },
+  {
+    name: "Chloé Galmes",
+    role: "Dirigeante Freedom Boat club",
+    photo: "/images/chloé galmes.jpeg",
+    quote: "Grace à l'accompagnement de Laurent nous avons doublé notre nombre d'adhérent, au-dela de nos objectifs, la rigueur et la pertinence ont fourni leurs effets !",
   },
 ];
 
@@ -48,7 +63,7 @@ export default function TestimonialVideoSection() {
       <div className="absolute inset-0 bg-primary-bg/90 dark:bg-blue-ink/90" />
       
       {/* Contenu par-dessus le fond */}
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6">
+      <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6">
         {/* Titre de la section */}
         <AnimatedSection animation="slide-up" delay={0}>
           <div className="text-center mb-12">
@@ -62,35 +77,41 @@ export default function TestimonialVideoSection() {
           </div>
         </AnimatedSection>
 
-        {/* Témoignages */}
-        <div className="space-y-10">
+        {/* Slider Swiper */}
+        <Swiper
+          modules={[Navigation, Pagination, A11y]}
+          spaceBetween={32}
+          slidesPerView={1}
+          navigation
+          pagination={{ clickable: true }}
+          className="mb-12"
+          breakpoints={{
+            1024: { slidesPerView: 2 },
+          }}
+        >
           {testimonials.map((t, i) => (
-            <AnimatedSection key={i} animation="slide-up" delay={200 + i * 200}>
-              <div className="bg-white/95 dark:bg-gray-anthracite/90 backdrop-blur-sm rounded-3xl p-6 sm:p-8 shadow-xl">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-mint-green/20 rounded-full flex items-center justify-center text-2xl sm:text-3xl">
-                    {t.icon}
+            <SwiperSlide key={i}>
+              <AnimatedSection animation="slide-up" delay={200 + i * 100}>
+                <div className="bg-white/95 dark:bg-gray-anthracite/90 backdrop-blur-sm rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col items-center h-full">
+                  <div className="w-20 h-20 mb-4 relative rounded-full overflow-hidden border-4 border-mint-green shadow-lg">
+                    <Image src={t.photo} alt={t.name} fill style={{objectFit:'cover'}} sizes="80px" />
                   </div>
-                  <div>
-                    <h3 className="font-title font-bold text-blue-ink dark:text-primary-bg text-lg sm:text-xl">{t.title}</h3>
-                    <p className="font-body text-mint-green font-semibold text-sm sm:text-base">{t.result}</p>
+                  <blockquote className="text-gray-anthracite dark:text-primary-bg/90 font-italic text-lg leading-relaxed mb-4 text-center">"{t.quote}"</blockquote>
+                  <div className="font-title font-bold text-blue-ink dark:text-primary-bg text-base text-center">
+                    {t.name}
+                  </div>
+                  <div className="font-normal text-gray-anthracite dark:text-primary-bg/70 text-sm text-center">
+                    {t.role}
                   </div>
                 </div>
-                <blockquote className="text-gray-anthracite dark:text-primary-bg/90 font-italic text-lg leading-relaxed mb-4">"{t.quote}"</blockquote>
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                  <div className="font-title font-bold text-blue-ink dark:text-primary-bg text-base">
-                    {t.author} <span className="font-normal text-gray-anthracite dark:text-primary-bg/70">{t.role}</span>
-                  </div>
-                  {t.video && <span className="text-xs text-mint-green font-body">{t.video}</span>}
-                </div>
-              </div>
-            </AnimatedSection>
+              </AnimatedSection>
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
 
         {/* CTA optionnel */}
         <AnimatedSection animation="fade-in" delay={800}>
-          <div className="text-center mt-12">
+          <div className="text-center mt-8">
             <p className="font-body text-gray-anthracite dark:text-primary-bg/70 mb-4">
               Vous aussi, transformez vos résultats commerciaux
             </p>
@@ -98,7 +119,7 @@ export default function TestimonialVideoSection() {
               variant="secondary"
               icon="📞"
               onClick={() => window.open('https://meetings.hubspot.com/laurent34/rdv-laurent-45-mn-clone', '_blank')}
-              className="bg-mint-green/10 hover:bg-mint-green/20 border-2 border-mint-green text-mint-green backdrop-blur-sm"
+              className="bg-mint-green text-white border-2 border-mint-green hover:bg-mint-green/90 hover:text-white shadow-lg"
             >
               Échanger avec Laurent
             </Button>
