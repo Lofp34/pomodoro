@@ -6,6 +6,8 @@ import { supabase } from './supabaseClient';
 import styled from 'styled-components';
 import type { Session as SupabaseSession } from '@supabase/supabase-js';
 import type { Session } from './components/Timer';
+import { POMODORO_SETTINGS } from './config';
+import type { Mode } from './config';
 
 const AppContainer = styled.div`
   display: flex;
@@ -34,14 +36,6 @@ const Nav = styled.nav`
     }
   }
 `;
-
-export const POMODORO_SETTINGS = {
-  work: { duration: 25, color: '#4a90e2' },
-  shortBreak: { duration: 5, color: '#50e3c2' },
-  longBreak: { duration: 15, color: '#bd10e0' },
-};
-
-export type Mode = 'work' | 'shortBreak' | 'longBreak';
 
 function App() {
   const [session, setSession] = useState<SupabaseSession | null>(null);

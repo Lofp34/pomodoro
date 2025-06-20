@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { POMODORO_SETTINGS } from '../App';
-import type { Mode } from '../App';
+import { POMODORO_SETTINGS } from '../config';
+import type { Mode } from '../config';
 
 const TimerLayout = styled.div`
   display: flex;
