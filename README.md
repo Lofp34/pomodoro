@@ -1,54 +1,55 @@
-# React + TypeScript + Vite
+# 🍅 Pomodoro PWA
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A beautiful and engaging Pomodoro timer designed to boost your productivity. Built as a Progressive Web App (PWA), it can be easily installed on your phone or desktop for quick access.
 
-Currently, two official plugins are available:
+*N'hésitez pas à ajouter une capture d'écran de l'application ici.*
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## ✨ Fonctionnalités
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Minuteur Visuel :** Le temps est représenté par un cercle de progression animé pour une expérience plus engageante.
+- **Cycles Pomodoro :** Gère automatiquement les cycles de travail (25 min), de pause courte (5 min) et de pause longue (15 min).
+- **Couleurs Dynamiques :** L'interface change de couleur pour indiquer le mode actuel (travail, pause courte, ou pause longue).
+- **Suivi des Tâches :** Nommez chaque session de travail pour savoir exactement sur quoi vous vous concentrez.
+- **Historique des Sessions :** Toutes vos sessions terminées sont sauvegardées localement et peuvent être consultées dans une vue d'historique.
+- **Progressive Web App (PWA) :** Installez l'application directement sur votre appareil (mobile ou ordinateur) pour une expérience native et un accès hors ligne.
+- **Design Responsive :** L'interface s'adapte parfaitement à toutes les tailles d'écran.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🛠️ Stack Technique
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- **Framework :** [React](https://reactjs.org/)
+- **Outil de build :** [Vite](https://vitejs.dev/)
+- **Langage :** [TypeScript](https://www.typescriptlang.org/)
+- **Styling :** [Styled-components](https://styled-components.com/)
+- **PWA :** [vite-plugin-pwa](https://vite-pwa-org.netlify.app/)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🚀 Démarrage Rapide
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+Pour lancer le projet en local, suivez ces étapes :
+
+1.  **Clonez le dépôt :**
+    ```bash
+    git clone https://github.com/Lofp34/pomodoro.git
+    cd pomodoro
+    ```
+
+2.  **Installez les dépendances :**
+    ```bash
+    npm install
+    ```
+
+3.  **Lancez le serveur de développement :**
+    ```bash
+    npm run dev
+    ```
+
+L'application sera alors disponible à l'adresse `http://localhost:5181`.
+
+### Note sur la PWA
+
+Pour que les fonctionnalités d'installation de la PWA fonctionnent correctement, assurez-vous de placer vos icônes (`pwa-192x192.png` et `pwa-512x512.png`) dans le dossier `/public`.
+
+---
+
+*Ce projet a été développé avec amour et concentration.*
