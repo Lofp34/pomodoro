@@ -93,7 +93,7 @@ function App() {
     let interval: number | undefined;
 
     if (isActive) {
-      interval = setInterval(async () => {
+      interval = window.setInterval(async () => {
         if (seconds > 0) {
           setSeconds(s => s - 1);
           return;
@@ -136,7 +136,7 @@ function App() {
       }, 1000);
     }
 
-    return () => clearInterval(interval);
+    return () => window.clearInterval(interval);
   }, [isActive, seconds, minutes, mode, pomodoroCount, switchMode, task, session]);
 
   const toggle = () => {
