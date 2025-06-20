@@ -87,6 +87,29 @@ function App() {
     };
 
     fetchSessions();
+
+    const channel = supabase
+      .channel('sessions-channel')
+      .on(
+        'postgres_changes',
+        { 
+          event: 'INSERT', 
+          schema: 'public', 
+          table: 'sessions',
+          filter: `user_id=eq.${session?.user.id}`
+        },
+        (payload) => {
+          // A new session has been inserted, add it to the top of our list
+          setSessions(prevSessions => [payload.new as Session, ...prevSessions]);
+        }
+      )
+      .subscribe();
+
+    // Cleanup function to remove the subscription when the component unmounts
+    return () => {
+      supabase.removeChannel(channel);
+    };
+
   }, [session]);
 
   useEffect(() => {
