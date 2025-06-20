@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useLocalStorage } from '../hooks/useLocalStorage';
-import type { Session } from '../components/Timer';
+import type { Session } from './Timer';
 
 const HistoryContainer = styled.div`
   width: 100%;
@@ -39,9 +38,11 @@ const SessionDate = styled.span`
   color: #888;
 `;
 
-const History: React.FC = () => {
-  const [sessions] = useLocalStorage<Session[]>('sessions', []);
+interface HistoryProps {
+  sessions: Session[];
+}
 
+const History: React.FC<HistoryProps> = ({ sessions }) => {
   return (
     <HistoryContainer>
       <Title>Session History</Title>

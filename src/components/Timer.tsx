@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { useLocalStorage } from '../hooks/useLocalStorage';
+import { POMODORO_SETTINGS } from '../App';
+import type { Mode } from '../App';
 
 const TimerLayout = styled.div`
   display: flex;
@@ -113,87 +114,35 @@ const TaskForm = styled.div`
   }
 `;
 
-const POMODORO_SETTINGS = {
-  work: { duration: 25, color: '#4a90e2' },
-  shortBreak: { duration: 5, color: '#50e3c2' },
-  longBreak: { duration: 15, color: '#bd10e0' },
-};
-
-type Mode = 'work' | 'shortBreak' | 'longBreak';
-
 export interface Session {
   task: string;
   date: string;
   duration: number; // in minutes
 }
 
-const Timer: React.FC = () => {
-  const [_sessions, setSessions] = useLocalStorage<Session[]>('sessions', []);
-  const [mode, setMode] = useState<Mode>('work');
-  const [task, setTask] = useState('');
-  const [minutes, setMinutes] = useState(POMODORO_SETTINGS.work.duration);
-  const [seconds, setSeconds] = useState(0);
-  const [isActive, setIsActive] = useState(false);
-  const [pomodoroCount, setPomodoroCount] = useState(0);
+interface TimerProps {
+  mode: Mode;
+  minutes: number;
+  seconds: number;
+  isActive: boolean;
+  task: string;
+  setTask: (task: string) => void;
+  switchMode: (mode: Mode) => void;
+  toggle: () => void;
+  reset: () => void;
+}
 
-  const switchMode = useCallback((newMode: Mode) => {
-    setMode(newMode);
-    setIsActive(false);
-    setMinutes(POMODORO_SETTINGS[newMode].duration);
-    setSeconds(0);
-  }, []);
-
-  useEffect(() => {
-    let interval: number | undefined;
-
-    if (isActive) {
-      interval = setInterval(() => {
-        if (seconds > 0) {
-          setSeconds(s => s - 1);
-          return;
-        }
-
-        if (minutes > 0) {
-          setMinutes(m => m - 1);
-          setSeconds(59);
-          return;
-        }
-
-        // Timer finished
-        if (mode === 'work') {
-          // Save the session
-          if (task.trim()) { // Only save if there's a task name
-            setSessions(prevSessions => [
-              ...prevSessions,
-              {
-                task,
-                date: new Date().toISOString(),
-                duration: POMODORO_SETTINGS.work.duration,
-              },
-            ]);
-          }
-          setTask(''); // Reset task input
-
-          const newCount = pomodoroCount + 1;
-          setPomodoroCount(newCount);
-          switchMode(newCount % 4 === 0 ? 'longBreak' : 'shortBreak');
-        } else {
-          switchMode('work');
-        }
-      }, 1000);
-    }
-
-    return () => clearInterval(interval);
-  }, [isActive, seconds, minutes, mode, pomodoroCount, switchMode, task, setSessions]);
-
-  const toggle = () => {
-    setIsActive(!isActive);
-  };
-
-  const reset = () => {
-    switchMode(mode);
-  };
-
+const Timer: React.FC<TimerProps> = ({
+  mode,
+  minutes,
+  seconds,
+  isActive,
+  task,
+  setTask,
+  switchMode,
+  toggle,
+  reset,
+}) => {
   const totalSeconds = POMODORO_SETTINGS[mode].duration * 60;
   const remainingSeconds = minutes * 60 + seconds;
   const circumference = 2 * Math.PI * 140;
@@ -210,9 +159,9 @@ const Timer: React.FC = () => {
 
       {mode === 'work' && (
         <TaskForm>
-          <input 
-            type="text" 
-            placeholder="What are you working on?" 
+          <input
+            type="text"
+            placeholder="What are you working on?"
             value={task}
             onChange={(e) => setTask(e.target.value)}
           />
