@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 
 const TimerLayout = styled.div`
@@ -128,7 +128,7 @@ export interface Session {
 }
 
 const Timer: React.FC = () => {
-  const [sessions, setSessions] = useLocalStorage<Session[]>('sessions', []);
+  const [_sessions, setSessions] = useLocalStorage<Session[]>('sessions', []);
   const [mode, setMode] = useState<Mode>('work');
   const [task, setTask] = useState('');
   const [minutes, setMinutes] = useState(POMODORO_SETTINGS.work.duration);
