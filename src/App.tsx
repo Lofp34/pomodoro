@@ -5,9 +5,8 @@ import Auth from './components/Auth';
 import { supabase } from './supabaseClient';
 import styled from 'styled-components';
 import type { Session as SupabaseSession } from '@supabase/supabase-js';
-import type { Session } from './components/Timer';
 import { POMODORO_SETTINGS } from './config';
-import type { Mode } from './config';
+import type { Mode, Session } from './config';
 
 const AppContainer = styled.div`
   display: flex;
@@ -54,6 +53,11 @@ function App() {
     setMinutes(POMODORO_SETTINGS[newMode].duration);
     setSeconds(0);
   }, []);
+
+  useEffect(() => {
+    const { duration } = POMODORO_SETTINGS[mode];
+    setMinutes(duration);
+  }, [mode]);
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {

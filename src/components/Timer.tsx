@@ -114,12 +114,6 @@ const TaskForm = styled.div`
   }
 `;
 
-export interface Session {
-  task: string;
-  date: string;
-  duration: number; // in minutes
-}
-
 interface TimerProps {
   mode: Mode;
   minutes: number;

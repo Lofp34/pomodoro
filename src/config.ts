@@ -4,4 +4,12 @@ export const POMODORO_SETTINGS = {
   longBreak: { duration: 15, color: '#bd10e0' },
 };
 
-export type Mode = 'work' | 'shortBreak' | 'longBreak'; 
+export type Mode = 'work' | 'shortBreak' | 'longBreak';
+
+export interface Session {
+  id?: number;
+  created_at: string;
+  task: string;
+  duration: number;
+  user_id?: string;
+} 

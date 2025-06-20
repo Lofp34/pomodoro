@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import type { Session } from './Timer';
+import type { Session } from '../config';
 
 const HistoryContainer = styled.div`
   width: 100%;
@@ -48,11 +48,11 @@ const History: React.FC<HistoryProps> = ({ sessions }) => {
       <Title>Session History</Title>
       <SessionList>
         {sessions.length > 0 ? (
-          sessions.slice().reverse().map((session, index) => (
+          sessions.map((session, index) => (
             <SessionItem key={index}>
               <TaskName>{session.task}</TaskName>
               <SessionDate>
-                {new Date(session.date).toLocaleDateString()} - {session.duration} min
+                {new Date(session.created_at).toLocaleDateString()} - {session.duration} min
               </SessionDate>
             </SessionItem>
           ))
