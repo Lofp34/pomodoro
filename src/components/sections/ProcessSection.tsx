@@ -5,7 +5,7 @@ import { useInView } from "@/hooks/useInView";
 import { CheckCircle, Target, Users, Brain, BarChart3, TrendingUp } from "lucide-react";
 
 const ProcessSection = () => {
-  const { ref, isInView } = useInView({ threshold: 0.3 });
+  const { ref, isInView } = useInView({ threshold: 0.1 });
 
   const phases = [
     {
@@ -50,30 +50,31 @@ const ProcessSection = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
+        staggerChildren: 0.2,
+        delayChildren: 0.2,
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
+        duration: 0.5,
         ease: "easeOut" as const
       }
     }
   };
 
   return (
-    <section ref={ref} className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+    <section ref={ref} className="py-20 bg-gradient-to-br from-slate-50 to-blue-50 overflow-hidden">
       <div className="container mx-auto px-4">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={itemVariants}
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
@@ -90,16 +91,16 @@ const ProcessSection = () => {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="flex flex-col md:flex-row md:flex-wrap md:justify-center gap-8 mb-16 items-center"
+          className="flex flex-col md:flex-row md:flex-wrap md:justify-center gap-8 mb-16 items-stretch"
         >
           {phases.map((phase, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
-              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100 w-full max-w-sm"
+              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100 w-full max-w-sm flex flex-col"
             >
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mr-4">
+                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
                   <phase.icon className="w-6 h-6 text-blue-600" />
                 </div>
                 <div>
@@ -108,7 +109,7 @@ const ProcessSection = () => {
                 </div>
               </div>
               
-              <p className="text-slate-600 mb-6 leading-relaxed">
+              <p className="text-slate-600 mb-6 leading-relaxed flex-grow">
                 {phase.description}
               </p>
               
@@ -125,9 +126,9 @@ const ProcessSection = () => {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={itemVariants}
           className="bg-gradient-to-r from-mint-green to-blue-ink rounded-2xl p-8 md:p-12 text-white text-center"
         >
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
