@@ -1,3 +1,5 @@
+import ManageCookiesButton from "@/components/ui/ManageCookiesButton";
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -24,16 +26,20 @@ export default function Footer() {
               <h4 className="font-title font-semibold text-primary-bg mb-4">Suivez-moi</h4>
               <div className="flex gap-4">
                 <a 
-                  href="#" 
+                  href="https://www.linkedin.com/in/laurentserre34/" 
                   className="w-12 h-12 bg-mint-green/20 hover:bg-mint-green rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 group"
                   aria-label="LinkedIn"
+                  target="_blank" 
+                  rel="noopener noreferrer"
                 >
                   <span className="text-xl group-hover:text-white transition-colors">💼</span>
                 </a>
                 <a 
-                  href="#" 
+                  href="https://www.youtube.com/channel/UCeYXC96USUJDsZrBPoHCN1A/" 
                   className="w-12 h-12 bg-orange-soft/20 hover:bg-orange-soft rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 group"
                   aria-label="YouTube"
+                  target="_blank" 
+                  rel="noopener noreferrer"
                 >
                   <span className="text-xl group-hover:text-white transition-colors">📺</span>
                 </a>
@@ -125,18 +131,19 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-wrap justify-center md:justify-end gap-6">
-            <a href="#" className="font-body text-primary-bg/70 hover:text-mint-green text-sm transition-colors">
+            <a href="/mentions-legales" className="font-body text-primary-bg/70 hover:text-mint-green text-sm transition-colors">
               Mentions légales
             </a>
-            <a href="#" className="font-body text-primary-bg/70 hover:text-mint-green text-sm transition-colors">
+            <a href="/cgv" className="font-body text-primary-bg/70 hover:text-mint-green text-sm transition-colors">
               CGV
             </a>
-            <a href="#" className="font-body text-primary-bg/70 hover:text-mint-green text-sm transition-colors">
+            <a href="/politique-de-confidentialite" className="font-body text-primary-bg/70 hover:text-mint-green text-sm transition-colors">
               Politique de confidentialité
             </a>
-            <a href="#" className="font-body text-primary-bg/70 hover:text-mint-green text-sm transition-colors">
-              Cookies
+            <a href="/cookies" className="font-body text-primary-bg/70 hover:text-mint-green text-sm transition-colors">
+              Politique de cookies
             </a>
+            <ManageCookiesButton />
           </div>
         </div>
 

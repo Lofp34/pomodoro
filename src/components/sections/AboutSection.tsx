@@ -88,6 +88,34 @@ export default function AboutSection() {
                   </div>
                 </div>
               </AnimatedSection>
+              {/* Social links */}
+              <AnimatedSection animation="fade-in" delay={800}>
+                <div className="pt-6 sm:pt-8">
+                  <h4 className="font-title font-semibold text-gray-anthracite dark:text-primary-bg text-center mb-4">
+                    Retrouvez-moi sur :
+                  </h4>
+                  <div className="flex justify-center items-center gap-6">
+                    <a href="https://www.linkedin.com/in/laurentserre34/" target="_blank" rel="noopener noreferrer" className="transition-transform duration-300 hover:scale-110">
+                      <Image
+                        src="/linkedin-logo.png"
+                        alt="LinkedIn Laurent Serre"
+                        width={140}
+                        height={40}
+                        className="object-contain"
+                      />
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCeYXC96USUJDsZrBPoHCN1A/" target="_blank" rel="noopener noreferrer" className="transition-transform duration-300 hover:scale-110">
+                      <Image
+                        src="/youtube-logo.png"
+                        alt="YouTube Laurent Serre"
+                        width={140}
+                        height={40}
+                        className="object-contain"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </AnimatedSection>
             </div>
           </AnimatedSection>
         </div>

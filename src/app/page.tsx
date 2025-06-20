@@ -8,7 +8,6 @@ import DiagnosticSection from "@/components/sections/DiagnosticSection";
 import LogoBanner from "@/components/LogoBanner";
 import MethodValuesSection from "@/components/sections/MethodValuesSection";
 import FinalCtaSection from "@/components/sections/FinalCtaSection";
-import Footer from "@/components/layout/Footer";
 
 export default function Home() {
   return (
@@ -25,7 +24,6 @@ export default function Home() {
         <MethodValuesSection />
         <FinalCtaSection />
       </main>
-      <Footer />
     </>
   );
 }

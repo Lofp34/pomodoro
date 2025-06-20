@@ -2,9 +2,10 @@ import React from "react";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import GoogleAnalytics from "@/components/GoogleAnalytics";
-import { analyticsConfig, isAnalyticsEnabled } from "@/config/analytics";
 import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import CookieConsentBanner from "@/components/CookieConsentBanner";
+import AnalyticsConsent from "@/components/AnalyticsConsent";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -54,17 +55,15 @@ export default function RootLayout({
         <meta name="twitter:description" content="De l'effort commercial au levier stratégique. Accompagnement et formation pour équipes commerciales." />
         <meta name="twitter:image" content="/og-image.jpg" />
         <link rel="canonical" href="https://laurentserre.com" />
+        <AnalyticsConsent />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Header />
-        {/* Google Analytics - Chargé uniquement si configuré */}
-        {isAnalyticsEnabled() && (
-          <GoogleAnalytics measurementId={analyticsConfig.measurementId} />
-        )}
-        
         {children}
+        <Footer />
+        <CookieConsentBanner />
       </body>
     </html>
   );
