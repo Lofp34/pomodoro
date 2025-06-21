@@ -29,8 +29,15 @@ const SessionItem = styled.li`
   align-items: center;
 `;
 
+const SessionContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+`;
+
 const TaskName = styled.span`
   font-weight: 600;
+  margin-bottom: 0.25rem;
 `;
 
 const SessionDate = styled.span`
@@ -38,22 +45,64 @@ const SessionDate = styled.span`
   color: #888;
 `;
 
+const DeleteButton = styled.button`
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin-left: 1rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+
+  &:hover {
+    color: #ff4757;
+    background-color: rgba(255, 71, 87, 0.1);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+`;
+
 interface HistoryProps {
   sessions: Session[];
+  onDeleteSession: (sessionId: number) => void;
 }
 
-const History: React.FC<HistoryProps> = ({ sessions }) => {
+const History: React.FC<HistoryProps> = ({ sessions, onDeleteSession }) => {
+  const handleDelete = (sessionId: number | undefined) => {
+    if (sessionId !== undefined && window.confirm('Êtes-vous sûr de vouloir supprimer cette session ?')) {
+      onDeleteSession(sessionId);
+    }
+  };
+
   return (
     <HistoryContainer>
       <Title>Session History</Title>
       <SessionList>
         {sessions.length > 0 ? (
           sessions.map((session, index) => (
-            <SessionItem key={index}>
-              <TaskName>{session.task}</TaskName>
-              <SessionDate>
-                {new Date(session.created_at).toLocaleDateString()} - {session.duration} min
-              </SessionDate>
+            <SessionItem key={session.id || index}>
+              <SessionContent>
+                <TaskName>{session.task}</TaskName>
+                <SessionDate>
+                  {new Date(session.created_at).toLocaleDateString()} - {session.duration} min
+                </SessionDate>
+              </SessionContent>
+              <DeleteButton
+                onClick={() => handleDelete(session.id)}
+                title="Supprimer cette session"
+                aria-label="Supprimer cette session"
+              >
+                ✕
+              </DeleteButton>
             </SessionItem>
           ))
         ) : (

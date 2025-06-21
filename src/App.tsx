@@ -178,6 +178,23 @@ function App() {
     await supabase.auth.signOut();
   }
 
+  const deleteSession = async (sessionId: number) => {
+    if (!session?.user) return;
+
+    const { error } = await supabase
+      .from('sessions')
+      .delete()
+      .eq('id', sessionId)
+      .eq('user_id', session.user.id);
+
+    if (error) {
+      console.error('Error deleting session:', error);
+    } else {
+      // Remove the session from local state immediately for better UX
+      setSessions(prevSessions => prevSessions.filter(s => s.id !== sessionId));
+    }
+  };
+
   return (
     <AppContainer>
       {!session ? (
@@ -202,7 +219,7 @@ function App() {
               reset={reset}
             />
           ) : (
-            <History sessions={sessions} />
+            <History sessions={sessions} onDeleteSession={deleteSession} />
           )}
         </>
       )}
